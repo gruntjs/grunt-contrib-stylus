@@ -30,8 +30,8 @@
   "dependencies": {
     "stylus": "~0.29.0",
     "nib": "~0.8.2",
-    "grunt-contrib-lib": "~0.1.0",
-    "grunt-contrib-clean": "~0.1.0"
+    "grunt-contrib-lib": "~0.2.0",
+    "grunt-contrib-clean": "~0.2.0"
   },
   "devDependencies": {
     "grunt": "~0.3.15"
