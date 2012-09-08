@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-stylus",
   "description": "Compile LESS files to CSS.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/gruntjs/grunt-contrib-stylus",
   "author": {
     "name": "Eric Woroshow",
@@ -28,13 +28,13 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "grunt-contrib-lib": "~0.1.0",
     "stylus": "~0.29.0",
-    "nib": "~0.8.1"
+    "nib": "~0.8.2",
+    "grunt-contrib-lib": "~0.1.0",
+    "grunt-contrib-clean": "~0.1.0"
   },
   "devDependencies": {
-    "grunt": "~0.3.15",
-    "grunt-contrib-clean": "~0.1.0"
+    "grunt": "~0.3.15"
   },
   "keywords": [
     "gruntplugin"

@@ -1,5 +1,5 @@
 # grunt-contrib-stylus
-> Compile Stylus files to CSS (part of the [grunt-contrib](/gruntjs/grunt-contrib) collection).  Submitted by [Eric Woroshow](/errcw).
+> Compile Stylus files to CSS (part of the [grunt-contrib](https://github.com/gruntjs/grunt-contrib) collection). Submitted by [Eric Woroshow](https://github.com/errcw).
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-contrib-stylus`

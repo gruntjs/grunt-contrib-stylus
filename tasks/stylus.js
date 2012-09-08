@@ -8,19 +8,19 @@
  */
 
 module.exports = function(grunt) {
-  "use strict";
+  'use strict';
 
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
 
   var _ = grunt.util._;
   var async = grunt.util.async;
-  var helpers = require("grunt-contrib-lib").init(grunt);
+  var helpers = require('grunt-contrib-lib').init(grunt);
 
-  grunt.registerMultiTask("stylus", "Compile Stylus files into CSS", function() {
+  grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
     var options = helpers.options(this);
 
-    grunt.verbose.writeflags(options, "Options");
+    grunt.verbose.writeflags(options, 'Options');
 
     // TODO: ditch this when grunt v0.4 is released
     this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
@@ -38,12 +38,12 @@ module.exports = function(grunt) {
         helperOptions = _.extend({filename: srcFile}, options);
         sourceCode = grunt.file.read(srcFile);
 
-        stylus(sourceCode, helperOptions, function(css) {
+        compileStylus(sourceCode, helperOptions, function(css) {
           nextConcat(null, css);
         });
       }, function(err, css) {
-        grunt.file.write(file.dest, css.join("\n") || "");
-        grunt.log.writeln("File '" + file.dest + "' created.");
+        grunt.file.write(file.dest, css.join('\n') || '');
+        grunt.log.writeln('File ' + file.dest + ' created.');
 
         next();
       });
@@ -52,12 +52,12 @@ module.exports = function(grunt) {
     });
   });
 
-  var stylus = function(source, options, callback) {
-    var s = require("stylus")(source);
+  var compileStylus = function(source, options, callback) {
+    var s = require('stylus')(source);
 
     // load nib if available
     try {
-      s.use(require("nib")());
+      s.use(require('nib')());
     } catch (e) {}
 
     _.each(options, function(value, key) {
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
     s.render(function(err, css) {
       if (err) {
         grunt.log.error(err);
-        grunt.fail.warn("Stylus failed to compile.");
+        grunt.fail.warn('Stylus failed to compile.');
       } else {
         callback(css);
       }
