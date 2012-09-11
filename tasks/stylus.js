@@ -12,10 +12,10 @@ module.exports = function(grunt) {
 
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
+  var _ = grunt.util._;
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
 
-    var _ = grunt.util._;
     var async = grunt.util.async;
     var helpers = require('grunt-contrib-lib').init(grunt);
     var options = helpers.options(this);
