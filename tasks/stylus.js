@@ -12,10 +12,10 @@ module.exports = function(grunt) {
 
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
+
   var _ = grunt.util._;
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-
     var async = grunt.util.async;
     var helpers = require('grunt-contrib-lib').init(grunt);
     var options = helpers.options(this);
@@ -38,8 +38,12 @@ module.exports = function(grunt) {
         helperOptions = _.extend({filename: srcFile}, options);
         sourceCode = grunt.file.read(srcFile);
 
-        compileStylus(sourceCode, helperOptions, function(css) {
-          nextConcat(null, css);
+        compileStylus(sourceCode, helperOptions, function(css, err) {
+          if(!err) {
+            nextConcat(null, css);
+          } else {
+            done();
+          }
         });
       }, function(err, css) {
         grunt.file.write(file.dest, css.join('\n') || '');
@@ -68,8 +72,9 @@ module.exports = function(grunt) {
       if (err) {
         grunt.log.error(err);
         grunt.fail.warn('Stylus failed to compile.');
+        callback(css, true);
       } else {
-        callback(css);
+        callback(css, null);
       }
     });
   };
