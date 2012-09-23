@@ -19,8 +19,8 @@ module.exports = function(grunt) {
   path.sep = path.sep || path.normalize('/');
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-    var async = grunt.util.async;
     var helpers = require('grunt-contrib-lib').init(grunt);
+
     var options = helpers.options(this, {
       basePath: false,
       flatten: false
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 
     var srcFiles;
 
-    async.forEachSeries(this.files, function(file, next) {
+    grunt.util.async.forEachSeries(this.files, function(file, next) {
       srcFiles = grunt.file.expandFiles(file.src);
 
       if (srcFiles.length === 0) {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       if (destType === 'individual') {
         basePath = options.basePath || findBasePath(srcFiles);
 
-        async.forEachSeries(srcFiles, function(srcFile, nextFile) {
+        grunt.util.async.forEachSeries(srcFiles, function(srcFile, nextFile) {
           newFileDest = getNewFileDest(file.dest, srcFile, basePath, options.flatten);
 
           compileStylus(srcFile, options, function(css, err) {
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
           next();
         });
       } else {
-        async.concatSeries(srcFiles, function(srcFile, nextConcat) {
+        grunt.util.async.concatSeries(srcFiles, function(srcFile, nextConcat) {
           compileStylus(srcFile, options, function(css, err) {
             if(!err) {
               nextConcat(null, css);
