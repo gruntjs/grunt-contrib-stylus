@@ -35,13 +35,21 @@ This controls how this task (and its helpers) operate and should contain key:val
 
 #### Options
 
+##### basePath ```string```
+
+This option adjusts the folder structure when compiled to the destination directory. When not explicitly set, best effort is made to locate the basePath by comparing all source filepaths left to right for a common pattern.
+
 ##### compress ```boolean```
 
-This specifies if we should compress the compiled css.
+This option specifies if we should compress the compiled css.
+
+##### flatten ```boolean```
+
+This option performs a flat compile that dumps all the files into the root of the destination directory, overwriting files if they exist.
 
 ##### paths ```string|array```
 
-This specifies directories to scan for @import directives when parsing.
+This option specifies directories to scan for @import directives when parsing.
 
 #### Config Example
 
@@ -53,8 +61,18 @@ stylus: {
       paths: ['path/to/import', 'another/to/import']
     },
     files: {
-      'path/to/result.css': 'path/to/source.styl',
-      'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.style'],
+      'path/to/result.css': 'path/to/source.styl', // 1:1 compile
+      'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.style'], // compile and concat into single file
+      'path/to/*.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile individually into dest, maintaining folder structure
+    }
+  },
+  flatten: {
+    options: {
+      flatten: true,
+      paths: ['path/to/import', 'another/to/import']
+    },
+    files: {
+      'path/to/*.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile individually into dest, flattening folder structure
     }
   }
 }
@@ -62,5 +80,6 @@ stylus: {
 
 ## Release History
 
+* 2012/09/17 - v0.2.3 - added ability to compile individually into dest, maintaining folder structure.
 * 2012/09/17 - v0.2.2 - tests refactored. better watch integration.
-* 2012/08/10 - v0.2.0 - Refactored from grunt-contrib into individual repo.
+* 2012/09/10 - v0.2.0 - refactored from grunt-contrib into individual repo.
