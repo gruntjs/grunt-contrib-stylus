@@ -27,7 +27,7 @@ This defines what files this task will process and should contain key:value pair
 
 The key (destination) should be an unique filepath (supports [grunt.template](https://github.com/cowboy/grunt/blob/master/docs/api_template.md)) and the value (source) should be a filepath or an array of filepaths (supports [minimatch](https://github.com/isaacs/minimatch)).
 
-As of v0.2.3, you can use *.{ext} as your destination filename to individually compile each file to the destination directory. Otherwise, when the source contains an array of multiple filepaths, the contents are concatenated in the order passed.
+As of v0.3.0, you can use *.{ext} as your destination filename to individually compile each file to the destination directory. Otherwise, when the source contains an array of multiple filepaths, the contents are concatenated in the order passed.
 
 ##### options ```object```
 
@@ -80,6 +80,6 @@ stylus: {
 
 ## Release History
 
-* 2012/09/24 - v0.2.3 - added ability to individually compile into dest, maintaining folder structure.
+* 2012/09/24 - v0.3.0 - added ability to individually compile into dest, maintaining folder structure. global options depreciated.
 * 2012/09/17 - v0.2.2 - tests refactored. better watch integration.
 * 2012/09/10 - v0.2.0 - refactored from grunt-contrib into individual repo.
