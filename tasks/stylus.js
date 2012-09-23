@@ -26,11 +26,6 @@ module.exports = function(grunt) {
       flatten: false
     });
 
-    if (options.basePath) {
-      options.basePath = path.normalize(options.basePath);
-      options.basePath = grunt.util._(options.basePath).trim(path.sep);
-    }
-
     grunt.verbose.writeflags(options, 'Options');
 
     // TODO: ditch this when grunt v0.4 is released
@@ -54,7 +49,7 @@ module.exports = function(grunt) {
       destType = detectDestType(file.dest);
 
       if (destType === 'individual') {
-        basePath = options.basePath || findBasePath(srcFiles);
+        basePath = helpers.findBasePath(srcFiles, options.basePath);
 
         grunt.util.async.forEachSeries(srcFiles, function(srcFile, nextFile) {
           newFileDest = getNewFileDest(file.dest, srcFile, basePath, options.flatten);
@@ -141,28 +136,12 @@ module.exports = function(grunt) {
     if (flatten) {
       relative = '';
     } else if (basePath && basePath.length > 1) {
-      relative = grunt.util._(relative).chain().strRight(basePath).trim(path.sep).value();
+      relative = grunt.util._(relative).strRight(basePath).trim(path.sep);
     }
 
     // make paths outside grunts working dir relative
     relative = relative.replace(/\.\.(\/|\\)/g, '');
 
     return path.join(newDest, relative, newName);
-  };
-
-  var findBasePath = function(srcFiles) {
-    var basePaths = [];
-    var dirName;
-
-    srcFiles.forEach(function(srcFile) {
-      srcFile = path.normalize(srcFile);
-      dirName = path.dirname(srcFile);
-
-      basePaths.push(dirName.split(path.sep));
-    });
-
-    basePaths = grunt.util._.intersection.apply([], basePaths);
-
-    return path.join.apply(path, basePaths);
   };
 };
