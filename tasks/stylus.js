@@ -13,12 +13,9 @@ module.exports = function(grunt) {
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
 
-  var path = require('path');
-
-  // TODO: remove if/when we officially drop node <= 0.7.9
-  path.sep = path.sep || path.normalize('/');
-
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
+    var path = require('path');
+
     var helpers = require('grunt-contrib-lib').init(grunt);
 
     var options = helpers.options(this, {
@@ -34,30 +31,28 @@ module.exports = function(grunt) {
     var done = this.async();
 
     var basePath;
-    var destType;
     var newFileDest;
 
     var srcFiles;
 
     grunt.util.async.forEachSeries(this.files, function(file, next) {
+      file.dest = path.normalize(file.dest);
       srcFiles = grunt.file.expandFiles(file.src);
 
       if (srcFiles.length === 0) {
         grunt.fail.warn('Unable to compile; no valid source files were found.');
       }
 
-      destType = detectDestType(file.dest);
-
-      if (destType === 'individual') {
+      if (helpers.isIndividualDest(file.dest)) {
         basePath = helpers.findBasePath(srcFiles, options.basePath);
 
         grunt.util.async.forEachSeries(srcFiles, function(srcFile, nextFile) {
-          newFileDest = getNewFileDest(file.dest, srcFile, basePath, options.flatten);
+          newFileDest = helpers.buildIndividualDest(file.dest, srcFile, basePath, options.flatten);
 
           compileStylus(srcFile, options, function(css, err) {
             if(!err) {
               grunt.file.write(newFileDest, css || '');
-              grunt.log.writeln('File ' + newFileDest + ' created.');
+              grunt.log.writeln('File ' + newFileDest.cyan + ' created.');
 
               nextFile(null);
             } else {
@@ -78,7 +73,7 @@ module.exports = function(grunt) {
           });
         }, function(err, css) {
           grunt.file.write(file.dest, css.join('\n') || '');
-          grunt.log.writeln('File ' + file.dest + ' created.');
+          grunt.log.writeln('File ' + file.dest.cyan + ' created.');
 
           next();
         });
@@ -114,34 +109,5 @@ module.exports = function(grunt) {
         callback(css, null);
       }
     });
-  };
-
-  var detectDestType = function(dest) {
-    var destFile = path.basename(dest);
-
-    if (grunt.util._.startsWith(destFile, '*')) {
-      return 'individual';
-    } else {
-      return 'single';
-    }
-  };
-
-  var getNewFileDest = function(dest, srcFile, basePath, flatten) {
-    srcFile = path.normalize(srcFile);
-
-    var newDest = path.dirname(dest);
-    var newName = path.basename(srcFile, path.extname(srcFile)) + path.extname(dest);
-    var relative = path.dirname(srcFile);
-
-    if (flatten) {
-      relative = '';
-    } else if (basePath && basePath.length > 1) {
-      relative = grunt.util._(relative).strRight(basePath).trim(path.sep);
-    }
-
-    // make paths outside grunts working dir relative
-    relative = relative.replace(/\.\.(\/|\\)/g, '');
-
-    return path.join(newDest, relative, newName);
   };
 };
