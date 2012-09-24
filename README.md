@@ -1,4 +1,4 @@
-# grunt-contrib-stylus
+# grunt-contrib-stylus [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-stylus)
 > Compile Stylus files to CSS (part of the [grunt-contrib](https://github.com/gruntjs/grunt-contrib) collection). Submitted by [Eric Woroshow](https://github.com/errcw).
 
 ## Getting Started
