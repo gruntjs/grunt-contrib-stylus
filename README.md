@@ -1,5 +1,6 @@
 # grunt-contrib-stylus [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-stylus)
-> Compile Stylus files to CSS (part of the [grunt-contrib](https://github.com/gruntjs/grunt-contrib) collection). Submitted by [Eric Woroshow](https://github.com/errcw).
+
+> Compile Stylus files to CSS.
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-contrib-stylus`
@@ -80,6 +81,10 @@ stylus: {
 
 ## Release History
 
-* 2012/09/24 - v0.3.0 - added ability to individually compile into dest, maintaining folder structure. global options depreciated.
-* 2012/09/17 - v0.2.2 - tests refactored. better watch integration.
-* 2012/09/10 - v0.2.0 - refactored from grunt-contrib into individual repo.
+* 2012/09/24 - v0.3.0 - Global options depreciated and added ability to individually compile into dest, maintaining folder structure.
+* 2012/09/17 - v0.2.2 - Tests refactored, better watch integration.
+* 2012/09/10 - v0.2.0 - Refactored from grunt-contrib into individual repo.
+
+--
+
+Task submitted by [Eric Woroshow](https://github.com/errcw).
