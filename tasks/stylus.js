@@ -15,7 +15,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
     var path = require('path');
 
-    var helpers = require('grunt-contrib-lib').init(grunt);
+    var helpers = require('grunt-lib-contrib').init(grunt);
 
     var options = helpers.options(this, {
       basePath: false,
