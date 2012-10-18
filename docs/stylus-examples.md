@@ -1,3 +1,5 @@
+# Examples
+
 ```js
 stylus: {
   compile: {

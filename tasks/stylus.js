@@ -6,33 +6,23 @@
  * Licensed under the MIT license.
  */
 
-module.exports = function(grunt) {
-  'use strict';
+'use strict';
 
-  // TODO: ditch this when grunt v0.4 is released
-  grunt.util = grunt.util || grunt.utils;
+module.exports = function(grunt) {
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-    var path = require('path');
 
+    var basePath, newFileDest, srcFiles;
+    var done = this.async();
+    var path = require('path');
     var helpers = require('grunt-lib-contrib').init(grunt);
 
-    var options = helpers.options(this, {
+    var options = this.options({
       basePath: false,
       flatten: false
     });
 
     grunt.verbose.writeflags(options, 'Options');
-
-    // TODO: ditch this when grunt v0.4 is released
-    this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
-
-    var done = this.async();
-
-    var basePath;
-    var newFileDest;
-
-    var srcFiles;
 
     grunt.util.async.forEachSeries(this.files, function(file, next) {
       file.dest = path.normalize(file.dest);

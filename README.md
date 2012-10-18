@@ -2,59 +2,67 @@
 
 > Compile Stylus files to CSS.
 
+_Note that this plugin has not yet been released, and only works with the latest bleeding-edge, in-development version of grunt. See the [When will I be able to use in-development feature 'X'?](https://github.com/gruntjs/grunt/blob/devel/docs/faq.md#when-will-i-be-able-to-use-in-development-feature-x) FAQ entry for more information._
+
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-contrib-stylus`
+_If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
 
-Then add this line to your project's `grunt.js` gruntfile:
+From the same directory as your project's [Gruntfile][Getting Started] and [package.json][], install this plugin with the following command:
 
-```javascript
+```bash
+npm install grunt-contrib-stylus --save-dev
+```
+
+Once that's done, add this line to your project's Gruntfile:
+
+```js
 grunt.loadNpmTasks('grunt-contrib-stylus');
 ```
 
-[grunt]: https://github.com/gruntjs/grunt
-[getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md
+If the plugin has been installed correctly, running `grunt --help` at the command line should list the newly-installed plugin's task or tasks. In addition, the plugin should be listed in package.json as a `devDependency`, which ensures that it will be installed whenever the `npm install` command is run.
+
+[grunt]: http://gruntjs.com/
+[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
+[package.json]: https://npmjs.org/doc/json.html
+
+
+## The stylus task
 
 ### Overview
 
-Inside your `grunt.js` file add a section named `stylus`. This section specifies the files to compile and the options passed to [stylus](http://learnboost.github.com/stylus/).
-
 This task comes preloaded with [nib](http://visionmedia.github.com/nib/).
+#### files
+Type: `object`
 
-#### Parameters
-
-##### files ```object```
-
-This defines what files this task will process and should contain key:value pairs.
+Defines what files this task will process and should contain key:value pairs.
 
 The key (destination) should be an unique filepath (supports [grunt.template](https://github.com/gruntjs/grunt/blob/master/docs/api_template.md)) and the value (source) should be a filepath or an array of filepaths (supports [minimatch](https://github.com/isaacs/minimatch)).
 
-As of v0.3.0, you can use *.{ext} as your destination filename to individually compile each file to the destination directory. Otherwise, when the source contains an array of multiple filepaths, the contents are concatenated in the order passed.
+You can use *.{ext} as your destination filename to individually compile each file to the destination directory. Otherwise, when the source contains an array of multiple filepaths, the contents are concatenated in the order passed.  **This API will be changing**
 
-##### options ```object```
+#### options.basePath
+Type: `String` (individual only)
 
-This controls how this task (and its helpers) operate and should contain key:value pairs, see options below.
+Adjusts the folder structure when compiled to the destination directory. When not explicitly set, best effort is made to locate the basePath by comparing all source filepaths left to right for a common pattern.
 
-#### Options
+#### options.compress
+Type: `Boolean`
+Default: false
 
-##### basePath ```string``` (individual only)
+Specifies if we should compress the compiled css.
 
-This option adjusts the folder structure when compiled to the destination directory. When not explicitly set, best effort is made to locate the basePath by comparing all source filepaths left to right for a common pattern.
+#### options.flatten
+Type: `Boolean` (individual only)
 
-##### compress ```boolean```
+Performs a flat compile that dumps all the files into the root of the destination directory, overwriting files if they exist.
 
-This option specifies if we should compress the compiled css.
+#### options.paths
+Type: `String|Array`
 
-##### flatten ```boolean``` (individual only)
+Specifies directories to scan for @import directives when parsing.
+### Examples
 
-This option performs a flat compile that dumps all the files into the root of the destination directory, overwriting files if they exist.
-
-##### paths ```string|array```
-
-This option specifies directories to scan for @import directives when parsing.
-
-#### Config Example
-
-``` javascript
+```js
 stylus: {
   compile: {
     options: {
@@ -79,6 +87,14 @@ stylus: {
 }
 ```
 
---
+## Release History
 
-*Task submitted by [Eric Woroshow](https://github.com/errcw).*
+ * 2012-10-11 - v0.3.1 - Rename grunt-contrib-lib dep to grunt-lib-contrib.
+ * 2012-09-23 - v0.3.0 - Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
+ * 2012-09-16 - v0.2.2 - Tests refactored, better watch integration.
+ * 2012-09-09 - v0.2.0 - Refactored from grunt-contrib into individual repo.
+
+--
+Task submitted by <a href="http://ericw.ca">Eric Woroshow</a>.
+
+*Generated on Thu Oct 18 2012 17:33:05.*
