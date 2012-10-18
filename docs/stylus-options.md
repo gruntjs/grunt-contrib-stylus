@@ -1,3 +1,5 @@
+# Options
+
 ## files
 Type: `object`
 

@@ -31,6 +31,8 @@ If the plugin has been installed correctly, running `grunt --help` at the comman
 ### Overview
 
 This task comes preloaded with [nib](http://visionmedia.github.com/nib/).
+### Options
+
 #### files
 Type: `object`
 
@@ -97,4 +99,4 @@ stylus: {
 --
 Task submitted by <a href="http://ericw.ca">Eric Woroshow</a>.
 
-*Generated on Thu Oct 18 2012 17:33:05.*
+*Generated on Thu Oct 18 2012 17:35:38.*
