@@ -30,10 +30,25 @@ If the plugin has been installed correctly, running `grunt --help` at the comman
 
 ### Overview
 
+In your project's Gruntfile, add a section named `stylus` to the data object passed into `grunt.initConfig()`.
+
+```js
+grunt.initConfig({
+  stylus: {
+    options: {
+      // Task-specific options go here.
+    },
+    your_target: {
+      // Target-specific file lists and/or options go here.
+    },
+  },
+})
+```
+
 This task comes preloaded with [nib](http://visionmedia.github.com/nib/).
 ### Options
 
-#### files
+## files
 Type: `object`
 
 Defines what files this task will process and should contain key:value pairs.
@@ -42,23 +57,23 @@ The key (destination) should be an unique filepath (supports [grunt.template](ht
 
 You can use *.{ext} as your destination filename to individually compile each file to the destination directory. Otherwise, when the source contains an array of multiple filepaths, the contents are concatenated in the order passed.  **This API will be changing**
 
-#### options.basePath
+## options.basePath
 Type: `String` (individual only)
 
 Adjusts the folder structure when compiled to the destination directory. When not explicitly set, best effort is made to locate the basePath by comparing all source filepaths left to right for a common pattern.
 
-#### options.compress
+## options.compress
 Type: `Boolean`
 Default: false
 
 Specifies if we should compress the compiled css.
 
-#### options.flatten
+## options.flatten
 Type: `Boolean` (individual only)
 
 Performs a flat compile that dumps all the files into the root of the destination directory, overwriting files if they exist.
 
-#### options.paths
+## options.paths
 Type: `String|Array`
 
 Specifies directories to scan for @import directives when parsing.
@@ -99,4 +114,4 @@ stylus: {
 --
 Task submitted by <a href="http://ericw.ca">Eric Woroshow</a>.
 
-*Generated on Thu Oct 18 2012 17:35:38.*
+*Generated on Thu Oct 18 2012 19:01:17.*
