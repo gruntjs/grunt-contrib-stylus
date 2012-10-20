@@ -80,13 +80,13 @@ module.exports = function(grunt) {
     var srcCode = grunt.file.read(srcFile);
     var s = require('stylus')(srcCode);
 
-    try {
-      s.use(require('nib')());
-    } catch (e) {}
-
     grunt.util._.each(options, function(value, key) {
       s.set(key, value);
     });
+
+    try {
+      s.use(require('nib')());
+    } catch (e) {}
 
     s.render(function(err, css) {
       if (err) {
