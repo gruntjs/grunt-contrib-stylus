@@ -78,10 +78,15 @@ module.exports = function(grunt) {
     delete options.flatten;
 
     var srcCode = grunt.file.read(srcFile);
-    var s = require('stylus')(srcCode);
+    var stylus = require('stylus');
+    var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {
-      s.set(key, value);
+      if (key === 'urlfunc') {
+          s.define(value, stylus.url());
+      } else {
+        s.set(key, value);
+      }
     });
 
     try {
