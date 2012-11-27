@@ -17,12 +17,15 @@ module.exports = function(grunt) {
     var path = require('path');
     var helpers = require('grunt-lib-contrib').init(grunt);
 
-    var options = this.options({
+    var options = helpers.options(this, {
       basePath: false,
       flatten: false
     });
 
     grunt.verbose.writeflags(options, 'Options');
+
+    // TODO: ditch this when grunt v0.4 is released
+    this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
 
     grunt.util.async.forEachSeries(this.files, function(file, next) {
       file.dest = path.normalize(file.dest);
