@@ -28,8 +28,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "stylus": "~0.29.0",
-    "nib": "~0.8.2",
+    "stylus": "~0.31.0",
+    "nib": "~0.9.0",
     "grunt-lib-contrib": "~0.3.0"
   },
   "devDependencies": {
