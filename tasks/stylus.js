@@ -98,6 +98,14 @@ module.exports = function(grunt) {
       s.set(key, value);
     });
 
+    try {
+      s.plugin('stylus-lemonade', {
+        image_path:  'public/images/',
+        sprite_path: 'public/images/',
+        sprite_url:  '/images/'
+      });
+    } catch(e) {}
+
     s.render(function(err, css) {
       if (err) {
         grunt.log.error(err);
