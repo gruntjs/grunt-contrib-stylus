@@ -25,7 +25,7 @@
     "node": ">= 0.6.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/grunt test"
+    "test": "grunt test"
   },
   "dependencies": {
     "stylus": "~0.29.0",
