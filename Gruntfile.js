@@ -10,6 +10,12 @@
 
 module.exports = function(grunt) {
 
+  function testPlugin() {
+    return function(style){
+      style.define('test-plugin', 'yep');
+    };
+  }
+
   // Project configuration.
   grunt.initConfig({
     jshint: {
@@ -49,6 +55,16 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/include'],
           compress: true,
           flatten: true
+        }
+      },
+      plugin: {
+        files: {
+          'tmp/plugin.css': 'test/fixtures/plugin/plugin.styl'
+        },
+        options: {
+          use: [
+            testPlugin
+          ]
         }
       }
     },
