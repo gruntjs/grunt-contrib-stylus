@@ -37,9 +37,42 @@ exports.stylus = {
 
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/nib.css');
-    var expected = grunt.file.read('test/expected/nib.css');
+    var actual = grunt.file.read('tmp/nib_.css');
+    var expected = grunt.file.read('test/expected/nib_/nib_.css');
     test.equal(expected, actual, 'Nib should be available to include');
+
+    test.done();
+  },
+  autocompress: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/autocompress.css');
+    var expected = grunt.file.read('test/expected/autocompress.css');
+    test.equal(expected, actual, 'output should be compressed when `compress` option not defined');
+
+    test.done();
+  },
+  plugin: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/plugin.css');
+    var expected = grunt.file.read('test/expected/plugin/plugin.css');
+    test.equal(expected, actual, 'variable defined via plugin should be accessible in stylesheet');
+
+    test.done();
+  },
+  embedurl: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/embedurl.css');
+    var expected = grunt.file.read('test/expected/embedurl/embedurl.css');
+    test.equal(expected, actual, '`embedurl` mixin should embed image as Data URI');
 
     test.done();
   }
