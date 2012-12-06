@@ -43,6 +43,17 @@ exports.stylus = {
 
     test.done();
   },
+  autocompress: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/autocompress.css');
+    var expected = grunt.file.read('test/expected/autocompress.css');
+    test.equal(expected, actual, 'output should be compressed when `compress` option not defined');
+
+    test.done();
+  },
   plugin: function(test) {
     'use strict';
 

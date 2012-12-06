@@ -32,9 +32,9 @@ Adjusts the folder structure when compiled to the destination directory. When no
 
 #### compress
 Type: `Boolean`
-Default: false
+Default: true
 
-Specifies if we should compress the compiled css.
+Specifies if we should compress the compiled CSS. Compression is always disabled when `--debug` flag is passed to grunt.
 
 #### flatten
 Type: `Boolean` (individual only)
@@ -99,4 +99,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Thu Dec 06 2012 22:48:18.*
+*This file was generated on Fri Dec 07 2012 00:05:39.*

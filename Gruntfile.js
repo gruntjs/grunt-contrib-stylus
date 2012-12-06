@@ -65,6 +65,14 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/include']
         }
       },
+      autocompress: {
+        files: {
+          'tmp/autocompress.css': 'test/fixtures/stylus.styl',
+        },
+        options: {
+          paths: ['test/fixtures/include']
+        }
+      },
       plugin: {
         files: {
           'tmp/plugin.css': 'test/fixtures/plugin/plugin.styl'

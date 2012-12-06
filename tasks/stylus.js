@@ -76,6 +76,13 @@ module.exports = function(grunt) {
     delete options.basePath;
     delete options.flatten;
 
+    // Compress output by default but never in debug mode
+    if (grunt.option('debug')) {
+      options.compress = false;
+    } else if (options.compress === undefined) {
+      options.compress = true;
+    }
+
     var srcCode = grunt.file.read(srcFile);
     var s = require('stylus')(srcCode);
 
