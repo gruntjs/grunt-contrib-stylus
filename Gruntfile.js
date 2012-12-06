@@ -53,7 +53,7 @@ module.exports = function(grunt) {
       },
       nib: {
         files: {
-          'tmp/nib.css': 'test/fixtures/nib/nib.styl'
+          'tmp/nib_.css': 'test/fixtures/nib_/nib_.styl'
         },
         options: {
           paths: ['test/fixtures/include']

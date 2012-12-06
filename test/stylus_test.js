@@ -37,8 +37,8 @@ exports.stylus = {
 
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/nib.css');
-    var expected = grunt.file.read('test/expected/nib.css');
+    var actual = grunt.file.read('tmp/nib_.css');
+    var expected = grunt.file.read('test/expected/nib_/nib_.css');
     test.equal(expected, actual, 'Nib should be available to include');
 
     test.done();
