@@ -80,7 +80,15 @@ module.exports = function(grunt) {
     var s = require('stylus')(srcCode);
 
     grunt.util._.each(options, function(value, key) {
-      s.set(key, value);
+      if (key === 'use') {
+        value.forEach(function(func) {
+          if (typeof func === 'function') {
+            s.use(func());
+          }
+        });
+      } else {
+        s.set(key, value);
+      }
     });
 
     // Load Nib if available
