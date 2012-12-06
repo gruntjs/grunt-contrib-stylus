@@ -31,5 +31,16 @@ exports.stylus = {
     test.deepEqual(expected, actual, 'should individually compile files (to flat structure)');
 
     test.done();
+  },
+  plugin: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/plugin.css');
+    var expected = grunt.file.read('test/expected/plugin/plugin.css');
+    test.equal(expected, actual, 'variable defined via plugin should be accessible in stylesheet');
+
+    test.done();
   }
 };

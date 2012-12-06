@@ -84,7 +84,15 @@ module.exports = function(grunt) {
     } catch (e) {}
 
     grunt.util._.each(options, function(value, key) {
-      s.set(key, value);
+      if (key === 'use') {
+        value.forEach(function(func) {
+          if (typeof func === 'function') {
+            s.use(func());
+          }
+        });
+      } else {
+        s.set(key, value);
+      }
     });
 
     s.render(function(err, css) {
