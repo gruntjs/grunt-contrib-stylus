@@ -82,6 +82,14 @@ module.exports = function(grunt) {
             testPlugin
           ]
         }
+      },
+      embedurl: {
+        files: {
+          'tmp/embedurl.css': 'test/fixtures/embedurl/embedurl.styl'
+        },
+        options: {
+          urlfunc: 'embedurl'
+        }
       }
     },
 

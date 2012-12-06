@@ -51,6 +51,17 @@ Type: `Array`
 
 List of Stylus plugins.
 
+#### urlfunc
+Type: `String`
+
+Stylus can embed images as Data URI but this functionality is disabled by default. To enable embedding of images define `urlfunc` option. The value is a function name. For example when `urlfunc: 'embedurl'` you can use it like this:
+
+```css
+E {
+  background-image:embedurl("logo.png");
+}
+```
+
 ### Examples
 
 ```js
@@ -99,4 +110,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Fri Dec 07 2012 00:05:39.*
+*This file was generated on Fri Dec 07 2012 00:27:28.*

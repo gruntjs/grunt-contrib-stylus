@@ -84,10 +84,14 @@ module.exports = function(grunt) {
     }
 
     var srcCode = grunt.file.read(srcFile);
-    var s = require('stylus')(srcCode);
+    var stylus = require('stylus');
+    var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {
-      if (key === 'use') {
+      if (key === 'urlfunc') {
+        // Custom name of function for embedding images as Data URI
+        s.define(value, stylus.url());
+      } else if (key === 'use') {
         value.forEach(function(func) {
           if (typeof func === 'function') {
             s.use(func());
