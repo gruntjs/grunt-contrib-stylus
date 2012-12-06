@@ -50,6 +50,14 @@ module.exports = function(grunt) {
           compress: true,
           flatten: true
         }
+      },
+      nib: {
+        files: {
+          'tmp/nib.css': 'test/fixtures/nib/nib.styl'
+        },
+        options: {
+          paths: ['test/fixtures/include']
+        }
       }
     },
 

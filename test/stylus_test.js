@@ -31,5 +31,16 @@ exports.stylus = {
     test.deepEqual(expected, actual, 'should individually compile files (to flat structure)');
 
     test.done();
+  },
+  nib: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/nib.css');
+    var expected = grunt.file.read('test/expected/nib.css');
+    test.equal(expected, actual, 'Nib should be available to include');
+
+    test.done();
   }
 };
