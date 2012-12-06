@@ -76,11 +76,30 @@ module.exports = function(grunt) {
     delete options.basePath;
     delete options.flatten;
 
+    // Compress output by default but never in debug mode
+    if (grunt.option('debug')) {
+      options.compress = false;
+    } else if (options.compress === undefined) {
+      options.compress = true;
+    }
+
     var srcCode = grunt.file.read(srcFile);
-    var s = require('stylus')(srcCode);
+    var stylus = require('stylus');
+    var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {
-      s.set(key, value);
+      if (key === 'urlfunc') {
+        // Custom name of function for embedding images as Data URI
+        s.define(value, stylus.url());
+      } else if (key === 'use') {
+        value.forEach(function(func) {
+          if (typeof func === 'function') {
+            s.use(func());
+          }
+        });
+      } else {
+        s.set(key, value);
+      }
     });
 
     // Load Nib if available

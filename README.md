@@ -32,9 +32,9 @@ Adjusts the folder structure when compiled to the destination directory. When no
 
 #### compress
 Type: `Boolean`
-Default: false
+Default: true
 
-Specifies if we should compress the compiled css.
+Specifies if we should compress the compiled CSS. Compression is always disabled when `--debug` flag is passed to grunt.
 
 #### flatten
 Type: `Boolean` (individual only)
@@ -45,6 +45,22 @@ Performs a flat compile that dumps all the files into the root of the destinatio
 Type: `String` `Array`
 
 Specifies directories to scan for @import directives when parsing.
+
+#### use
+Type: `Array`
+
+List of Stylus plugins.
+
+#### urlfunc
+Type: `String`
+
+Stylus can embed images as Data URI but this functionality is disabled by default. To enable embedding of images define `urlfunc` option. The value is a function name. For example when `urlfunc: 'embedurl'` you can use it like this:
+
+```css
+E {
+  background-image:embedurl("logo.png");
+}
+```
 
 ### Examples
 
@@ -69,19 +85,29 @@ stylus: {
     files: {
       'path/to/*.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile individually into dest, flattening folder structure
     }
+  },
+  plugin: {
+    options: {
+      use: [
+        require('fluidity')
+      ]
+    },
+    files: {
+      'tmp/plugin.css': 'test/fixtures/plugin/plugin.styl'
+    }
   }
 }
 ```
 
 ## Release History
 
- * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
- * 2012-09-23   v0.3.0   Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
- * 2012-09-16   v0.2.2   Tests refactored, better watch integration.
- * 2012-09-09   v0.2.0   Refactored from grunt-contrib into individual repo.
+ * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
+ * 2012-09-24   v0.3.0   Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
+ * 2012-09-17   v0.2.2   Tests refactored, better watch integration.
+ * 2012-09-10   v0.2.0   Refactored from grunt-contrib into individual repo.
 
 ---
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Nov 28 2012 08:47:07.*
+*This file was generated on Fri Dec 07 2012 00:27:28.*
