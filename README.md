@@ -46,6 +46,17 @@ Type: `String` `Array`
 
 Specifies directories to scan for @import directives when parsing.
 
+#### urlfunc
+Type: `String`
+
+Stylus can embed images as Data URI but this functionality is disabled by default. To enable embedding of images define `urlfunc` option. The value is a function name. For example when `urlfunc: 'embedurl'` you can use it like this:
+
+```css
+E {
+  background-image:embedurl("logo.png");
+}
+```
+
 ### Examples
 
 ```js

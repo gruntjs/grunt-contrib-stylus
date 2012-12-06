@@ -31,5 +31,16 @@ exports.stylus = {
     test.deepEqual(expected, actual, 'should individually compile files (to flat structure)');
 
     test.done();
+  },
+  embedurl: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/embedurl.css');
+    var expected = grunt.file.read('test/expected/embedurl.css');
+    test.equal(expected, actual, '`embedurl` mixin should embed image as Data URI');
+
+    test.done();
   }
 };
