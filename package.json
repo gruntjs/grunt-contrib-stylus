@@ -28,13 +28,13 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "stylus": "~0.29.0",
-    "nib": "~0.8.2",
+    "stylus": "~0.31.0",
+    "nib": "~0.9.0",
     "grunt-lib-contrib": "~0.3.0"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "0.1.0",
-    "grunt-contrib-nodeunit": "0.1.0",
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-contrib-nodeunit": "~0.1.1",
     "grunt-contrib-internal": "~0.1.0",
     "grunt-contrib-clean": "~0.4.0",
     "grunt": "~0.4.0a",
