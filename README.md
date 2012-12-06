@@ -32,7 +32,7 @@ Adjusts the folder structure when compiled to the destination directory. When no
 
 #### compress
 Type: `Boolean`
-Default: false
+Default: true
 
 Specifies if we should compress the compiled css.
 
