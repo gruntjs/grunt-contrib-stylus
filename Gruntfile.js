@@ -50,6 +50,14 @@ module.exports = function(grunt) {
           compress: true,
           flatten: true
         }
+      },
+      embedurl: {
+        files: {
+          'tmp/embedurl.css': 'test/fixtures/embedurl/embedurl.styl'
+        },
+        options: {
+          urlfunc: 'embedurl'
+        }
       }
     },
 
