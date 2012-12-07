@@ -25,42 +25,26 @@ This task comes preloaded with [nib](http://visionmedia.github.com/nib/).
 
 ### Options
 
-#### basePath
-Type: `String` (individual only)
-
-Adjusts the folder structure when compiled to the destination directory. When not explicitly set, best effort is made to locate the basePath by comparing all source filepaths left to right for a common pattern. You can use *.{ext} as your destination filename to individually compile each file to the destination directory. Otherwise, when the source contains an array of multiple filepaths, the contents are concatenated in the order passed.  **This API will be changing**
-
 #### compress
 Type: `Boolean`
 Default: true
 
-Specifies if we should compress the compiled CSS. Compression is always disabled when `--debug` flag is passed to grunt.
-
-#### flatten
-Type: `Boolean` (individual only)
-
-Performs a flat compile that dumps all the files into the root of the destination directory, overwriting files if they exist.
+Specifies if we should compress the compiled css. Compression is always disabled when `--debug` flag is passed to grunt.
 
 #### paths
 Type: `String` `Array`
 
 Specifies directories to scan for @import directives when parsing.
 
-#### use
-Type: `Array`
-
-List of Stylus plugins.
-
 #### urlfunc
 Type: `String`
 
-Stylus can embed images as Data URI but this functionality is disabled by default. To enable embedding of images define `urlfunc` option. The value is a function name. For example when `urlfunc: 'embedurl'` you can use it like this:
+Specifies function name that should be used for embedding images as Data URI.
 
-```css
-E {
-  background-image:embedurl("logo.png");
-}
-```
+#### use
+Type: `Array`
+
+Allows passing of stylus plugins to be used during compile.
 
 ### Examples
 
@@ -68,32 +52,15 @@ E {
 stylus: {
   compile: {
     options: {
-      compress: true,
-      paths: ['path/to/import', 'another/to/import']
-    },
-    files: {
-      'path/to/result.css': 'path/to/source.styl', // 1:1 compile
-      'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.style'], // compile and concat into single file
-      'path/to/*.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile individually into dest, maintaining folder structure
-    }
-  },
-  flatten: {
-    options: {
-      flatten: true,
-      paths: ['path/to/import', 'another/to/import']
-    },
-    files: {
-      'path/to/*.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile individually into dest, flattening folder structure
-    }
-  },
-  plugin: {
-    options: {
+      paths: ['path/to/import', 'another/to/import'],
+      urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
       use: [
-        require('fluidity')
+        require('fluidity') // use stylus plugin at compile time
       ]
     },
     files: {
-      'tmp/plugin.css': 'test/fixtures/plugin/plugin.styl'
+      'path/to/result.css': 'path/to/source.styl', // 1:1 compile
+      'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile and concat into single file
     }
   }
 }
@@ -101,13 +68,14 @@ stylus: {
 
 ## Release History
 
- * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
- * 2012-09-24   v0.3.0   Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
- * 2012-09-17   v0.2.2   Tests refactored, better watch integration.
- * 2012-09-10   v0.2.0   Refactored from grunt-contrib into individual repo.
+ * 2012-12-05   v0.4.0   Conversion to grunt v0.4 conventions. Remove node v0.6 and grunt v0.3 support. Merge grunt-stylus features (plugin loading, embedding). Remove experimental destination wildcards.
+ * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
+ * 2012-09-23   v0.3.0   Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
+ * 2012-09-16   v0.2.2   Tests refactored, better watch integration.
+ * 2012-09-09   v0.2.0   Refactored from grunt-contrib into individual repo.
 
 ---
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Fri Dec 07 2012 00:27:28.*
+*This file was generated on Thu Dec 06 2012 22:47:46.*
