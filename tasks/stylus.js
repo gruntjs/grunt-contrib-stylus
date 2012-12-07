@@ -9,17 +9,14 @@
 'use strict';
 
 module.exports = function(grunt) {
-
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-
     var newFileDest, srcFiles;
     var done = this.async();
     var path = require('path');
     var helpers = require('grunt-lib-contrib').init(grunt);
 
     var options = this.options({
-      basePath: false,
-      flatten: false
+      compress: true
     });
 
     grunt.verbose.writeflags(options, 'Options');
@@ -33,42 +30,21 @@ module.exports = function(grunt) {
       done();
     }
 
-    // hack by chris to support compiling individual files
-    if (helpers.isIndividualDest(destFile)) {
-      var basePath = helpers.findBasePath(files, options.basePath);
-      grunt.util.async.forEachSeries(files, function(file, next) {
-        var newFileDest = helpers.buildIndividualDest(destFile, file, basePath, options.flatten);
-        compileStylus(file, options, function(css, err) {
-          if(!err) {
-            grunt.file.write(newFileDest, css || '');
-            grunt.log.writeln('File ' + newFileDest.cyan + ' created.');
-            next(null);
-          } else {
-            done(false);
-          }
-        });
-      }, function() {
-
-        done();
+    var compiled = [];
+    grunt.util.async.concatSeries(files, function(file, next) {
+      compileStylus(file, options, function(css, err) {
+        if(!err) {
+          compiled.push(css);
+          next(null);
+        } else {
+          done(false);
+        }
       });
-    } else {
-      // normal execution
-      var compiled = [];
-      grunt.util.async.concatSeries(files, function(file, next) {
-        compileStylus(file, options, function(css, err) {
-          if(!err) {
-            compiled.push(css);
-            next(null);
-          } else {
-            done(false);
-          }
-        });
-      }, function() {
-        grunt.file.write(destFile, compiled.join('\n'));
-        grunt.log.writeln('File ' + destFile.cyan + ' created.');
-        done();
-      });
-    }
+    }, function() {
+      grunt.file.write(destFile, compiled.join('\n'));
+      grunt.log.writeln('File ' + destFile.cyan + ' created.');
+      done();
+    });
   });
 
   var compileStylus = function(srcFile, options, callback) {
@@ -79,8 +55,6 @@ module.exports = function(grunt) {
     // Compress output by default but never in debug mode
     if (grunt.option('debug')) {
       options.compress = false;
-    } else if (options.compress === undefined) {
-      options.compress = true;
     }
 
     var srcCode = grunt.file.read(srcFile);
