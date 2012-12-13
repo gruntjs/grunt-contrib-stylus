@@ -10,6 +10,12 @@
 
 module.exports = function(grunt) {
 
+  function testPlugin() {
+    return function(style){
+      style.define('test-plugin', 'yep');
+    };
+  }
+
   // Project configuration.
   grunt.initConfig({
     jshint: {
@@ -33,30 +39,45 @@ module.exports = function(grunt) {
       compile: {
         files: {
           'tmp/stylus.css': ['test/fixtures/stylus.styl'],
-          'tmp/concat.css': ['test/fixtures/stylus.styl', 'test/fixtures/stylus2.styl'],
-          'tmp/individual/*.css': ['test/fixtures/*.styl', 'test/fixtures/level2/*.styl']
+          'tmp/concat.css': ['test/fixtures/stylus.styl', 'test/fixtures/stylus2.styl']
         },
         options: {
           paths: ['test/fixtures/include'],
           compress: true
         }
       },
-      flatten: {
-        files: {
-          'tmp/individual_flatten/*.css': ['test/fixtures/*.styl', 'test/fixtures/level2/*.styl']
-        },
-        options: {
-          paths: ['test/fixtures/include'],
-          compress: true,
-          flatten: true
-        }
-      },
       nib: {
         files: {
-          'tmp/nib.css': 'test/fixtures/nib/nib.styl'
+          'tmp/nib_.css': 'test/fixtures/nib_/nib_.styl'
         },
         options: {
           paths: ['test/fixtures/include']
+        }
+      },
+      autocompress: {
+        files: {
+          'tmp/autocompress.css': 'test/fixtures/stylus.styl',
+        },
+        options: {
+          paths: ['test/fixtures/include']
+        }
+      },
+      plugin: {
+        files: {
+          'tmp/plugin.css': 'test/fixtures/plugin/plugin.styl'
+        },
+        options: {
+          use: [
+            testPlugin
+          ]
+        }
+      },
+      embedurl: {
+        files: {
+          'tmp/embedurl.css': 'test/fixtures/embedurl/embedurl.styl'
+        },
+        options: {
+          urlfunc: 'embedurl'
         }
       }
     },
