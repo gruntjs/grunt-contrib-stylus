@@ -1,3 +1,10 @@
+v0.4.0:
+  date: 2012-12-15
+  changes:
+    - Conversion to grunt v0.4 conventions.
+    - Remove node v0.6 and grunt v0.3 support.
+    - Merge grunt-stylus features (plugin loading, embedding).
+    - Remove experimental destination wildcards.
 v0.3.1:
   date: 2012-10-12
   changes:
