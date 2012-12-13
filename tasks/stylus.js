@@ -9,18 +9,19 @@
 'use strict';
 
 module.exports = function(grunt) {
-
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-
     var newFileDest, srcFiles;
     var done = this.async();
     var path = require('path');
     var helpers = require('grunt-lib-contrib').init(grunt);
 
     var options = this.options({
-      basePath: false,
-      flatten: false
+      compress: true
     });
+
+    if (options.basePath || options.flatten) {
+      grunt.fail.warn('experimental destination wildcards are no longer supported. please refer to readme.');
+    }
 
     grunt.verbose.writeflags(options, 'Options');
 
@@ -33,54 +34,48 @@ module.exports = function(grunt) {
       done();
     }
 
-    // hack by chris to support compiling individual files
-    if (helpers.isIndividualDest(destFile)) {
-      var basePath = helpers.findBasePath(files, options.basePath);
-      grunt.util.async.forEachSeries(files, function(file, next) {
-        var newFileDest = helpers.buildIndividualDest(destFile, file, basePath, options.flatten);
-        compileStylus(file, options, function(css, err) {
-          if(!err) {
-            grunt.file.write(newFileDest, css || '');
-            grunt.log.writeln('File ' + newFileDest.cyan + ' created.');
-            next(null);
-          } else {
-            done(false);
-          }
-        });
-      }, function() {
-
-        done();
+    var compiled = [];
+    grunt.util.async.concatSeries(files, function(file, next) {
+      compileStylus(file, options, function(css, err) {
+        if(!err) {
+          compiled.push(css);
+          next(null);
+        } else {
+          done(false);
+        }
       });
-    } else {
-      // normal execution
-      var compiled = [];
-      grunt.util.async.concatSeries(files, function(file, next) {
-        compileStylus(file, options, function(css, err) {
-          if(!err) {
-            compiled.push(css);
-            next(null);
-          } else {
-            done(false);
-          }
-        });
-      }, function() {
-        grunt.file.write(destFile, compiled.join('\n'));
-        grunt.log.writeln('File ' + destFile.cyan + ' created.');
-        done();
-      });
-    }
+    }, function() {
+      grunt.file.write(destFile, compiled.join('\n'));
+      grunt.log.writeln('File ' + destFile.cyan + ' created.');
+      done();
+    });
   });
 
   var compileStylus = function(srcFile, options, callback) {
     options = grunt.util._.extend({filename: srcFile}, options);
-    delete options.basePath;
-    delete options.flatten;
+
+    // Compress output by default but never in debug mode
+    if (grunt.option('debug')) {
+      options.compress = false;
+    }
 
     var srcCode = grunt.file.read(srcFile);
-    var s = require('stylus')(srcCode);
+    var stylus = require('stylus');
+    var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {
-      s.set(key, value);
+      if (key === 'urlfunc') {
+        // Custom name of function for embedding images as Data URI
+        s.define(value, stylus.url());
+      } else if (key === 'use') {
+        value.forEach(function(func) {
+          if (typeof func === 'function') {
+            s.use(func());
+          }
+        });
+      } else {
+        s.set(key, value);
+      }
     });
 
     // Load Nib if available
