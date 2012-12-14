@@ -10,10 +10,8 @@
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-    var newFileDest, srcFiles;
     var done = this.async();
     var path = require('path');
-    var helpers = require('grunt-lib-contrib').init(grunt);
 
     var options = this.options({
       compress: true
@@ -25,7 +23,7 @@ module.exports = function(grunt) {
 
     grunt.verbose.writeflags(options, 'Options');
 
-    // get files
+    // Get files
     var files = this.file.src;
     var destFile = path.normalize(this.file.dest);
 
@@ -37,7 +35,7 @@ module.exports = function(grunt) {
     var compiled = [];
     grunt.util.async.concatSeries(files, function(file, next) {
       compileStylus(file, options, function(css, err) {
-        if(!err) {
+        if (!err) {
           compiled.push(css);
           next(null);
         } else {
@@ -54,7 +52,7 @@ module.exports = function(grunt) {
   var compileStylus = function(srcFile, options, callback) {
     options = grunt.util._.extend({filename: srcFile}, options);
 
-    // Compress output by default but never in debug mode
+    // Never compress output in debug mode
     if (grunt.option('debug')) {
       options.compress = false;
     }
