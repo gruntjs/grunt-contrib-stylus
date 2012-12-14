@@ -79,6 +79,11 @@ module.exports = function(grunt) {
         options: {
           urlfunc: 'embedurl'
         }
+      },
+      relative: {
+        files: {
+          'tmp/relative.css': 'test/fixtures/relative/relative.styl'
+        }
       }
     },
 

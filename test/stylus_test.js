@@ -72,5 +72,16 @@ exports.stylus = {
     test.equal(expected, actual, '`embedurl` mixin should embed image as Data URI');
 
     test.done();
+  },
+  relative: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = readFile('tmp/relative.css');
+    var expected = readFile('test/expected/relative/relative.css');
+    test.equal(expected, actual, 'import of relative paths should work without `paths` option');
+
+    test.done();
   }
 };
