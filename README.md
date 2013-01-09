@@ -23,6 +23,8 @@ _This task is a [multi task][] so any targets, files and options should be speci
 
 This task comes preloaded with [nib](http://visionmedia.github.com/nib/).
 
+_Version `0.4.x` of this plugin is compatible with Grunt `0.4.x`. Version `0.3.x` of this plugin is compatible with Grunt `0.3.x`._
+
 ### Options
 
 #### compress
@@ -68,7 +70,8 @@ stylus: {
 
 ## Release History
 
- * 2012-12-14   v0.4.0   Conversion to grunt v0.4 conventions. Remove node v0.6 and grunt v0.3 support. Merge grunt-stylus features (plugin loading, embedding). Remove experimental destination wildcards.
+ * 2013-01-08   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.file api.
+ * 2012-12-14   v0.4.0a   Conversion to grunt v0.4 conventions. Remove node v0.6 and grunt v0.3 support. Merge grunt-stylus features (plugin loading, embedding). Remove experimental destination wildcards.
  * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
  * 2012-09-23   v0.3.0   Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
  * 2012-09-16   v0.2.2   Tests refactored, better watch integration.
@@ -78,4 +81,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Dec 12 2012 19:13:54.*
+*This file was generated on Wed Jan 09 2013 15:50:57.*

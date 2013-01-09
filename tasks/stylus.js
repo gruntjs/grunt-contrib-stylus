@@ -23,30 +23,30 @@ module.exports = function(grunt) {
 
     grunt.verbose.writeflags(options, 'Options');
 
-    // Get files
-    var files = this.file.src;
-    var destFile = path.normalize(this.file.dest);
+    grunt.util.async.forEachSeries(this.files, function(f, n) {
+      var destFile = path.normalize(f.dest);
 
-    if (files.length === 0) {
-      grunt.fail.warn('Unable to compile; no valid source files were found.');
-      done();
-    }
+      if (f.src.length === 0) {
+        grunt.fail.warn('Unable to compile; no valid source files were found.');
+        n();
+      }
 
-    var compiled = [];
-    grunt.util.async.concatSeries(files, function(file, next) {
-      compileStylus(file, options, function(css, err) {
-        if (!err) {
-          compiled.push(css);
-          next(null);
-        } else {
-          done(false);
-        }
+      var compiled = [];
+      grunt.util.async.concatSeries(f.src, function(file, next) {
+        compileStylus(file, options, function(css, err) {
+          if (!err) {
+            compiled.push(css);
+            next(null);
+          } else {
+            n(false);
+          }
+        });
+      }, function() {
+        grunt.file.write(destFile, compiled.join('\n'));
+        grunt.log.writeln('File ' + destFile.cyan + ' created.');
+        n();
       });
-    }, function() {
-      grunt.file.write(destFile, compiled.join('\n'));
-      grunt.log.writeln('File ' + destFile.cyan + ' created.');
-      done();
-    });
+    }, done);
   });
 
   var compileStylus = function(srcFile, options, callback) {
