@@ -14,7 +14,8 @@ module.exports = function(grunt) {
     var path = require('path');
 
     var options = this.options({
-      compress: true
+      compress: true,
+      separator: grunt.util.linefeed
     });
 
     if (options.basePath || options.flatten) {
@@ -25,14 +26,23 @@ module.exports = function(grunt) {
 
     grunt.util.async.forEachSeries(this.files, function(f, n) {
       var destFile = path.normalize(f.dest);
+      var srcFiles = f.src.filter(function(filepath) {
+        // Warn on and remove invalid source files (if nonull was set).
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file "' + filepath + '" not found.');
+          return false;
+        } else {
+          return true;
+        }
+      });
 
-      if (f.src.length === 0) {
-        grunt.fail.warn('Unable to compile; no valid source files were found.');
+      if (srcFiles.length === 0) {
+        // No src files, goto next target. Warn would have been issued above.
         n();
       }
 
       var compiled = [];
-      grunt.util.async.concatSeries(f.src, function(file, next) {
+      grunt.util.async.concatSeries(srcFiles, function(file, next) {
         compileStylus(file, options, function(css, err) {
           if (!err) {
             compiled.push(css);
@@ -42,8 +52,12 @@ module.exports = function(grunt) {
           }
         });
       }, function() {
-        grunt.file.write(destFile, compiled.join('\n'));
-        grunt.log.writeln('File ' + destFile.cyan + ' created.');
+        if (compiled.length < 1) {
+          grunt.log.warn('Destination not written because compiled files were empty.');
+        } else {
+          grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(options.separator)));
+          grunt.log.writeln('File ' + destFile.cyan + ' created.');
+        }
         n();
       });
     }, done);
