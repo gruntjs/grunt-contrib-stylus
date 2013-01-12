@@ -27,12 +27,6 @@ _Version `0.4.x` of this plugin is compatible with Grunt `0.4.x`. Version `0.3.x
 
 ### Options
 
-#### separator
-Type: `String`
-Default: linefeed
-
-Concatenated files will be joined on this string.
-
 #### compress
 Type: `Boolean`
 Default: true
@@ -87,4 +81,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Thu Jan 10 2013 12:51:04.*
+*This file was generated on Fri Jan 11 2013 18:04:24.*

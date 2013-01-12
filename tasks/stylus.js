@@ -14,8 +14,7 @@ module.exports = function(grunt) {
     var path = require('path');
 
     var options = this.options({
-      compress: true,
-      separator: grunt.util.linefeed
+      compress: true
     });
 
     if (options.basePath || options.flatten) {
@@ -55,7 +54,7 @@ module.exports = function(grunt) {
         if (compiled.length < 1) {
           grunt.log.warn('Destination not written because compiled files were empty.');
         } else {
-          grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(options.separator)));
+          grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
           grunt.log.writeln('File ' + destFile.cyan + ' created.');
         }
         n();
