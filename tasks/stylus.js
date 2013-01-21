@@ -9,6 +9,10 @@
 'use strict';
 
 module.exports = function(grunt) {
+
+  // Internal lib.
+  var stylus = require('./lib/stylus').init(grunt);
+
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
     var done = this.async();
     var path = require('path');
@@ -42,7 +46,7 @@ module.exports = function(grunt) {
 
       var compiled = [];
       grunt.util.async.concatSeries(srcFiles, function(file, next) {
-        compileStylus(file, options, function(css, err) {
+        stylus.compile(file, options, function(css, err) {
           if (!err) {
             compiled.push(css);
             next(null);
@@ -62,47 +66,4 @@ module.exports = function(grunt) {
     }, done);
   });
 
-  var compileStylus = function(srcFile, options, callback) {
-    options = grunt.util._.extend({filename: srcFile}, options);
-
-    // Never compress output in debug mode
-    if (grunt.option('debug')) {
-      options.compress = false;
-    }
-
-    var srcCode = grunt.file.read(srcFile);
-    var stylus = require('stylus');
-    var s = stylus(srcCode);
-
-    grunt.util._.each(options, function(value, key) {
-      if (key === 'urlfunc') {
-        // Custom name of function for embedding images as Data URI
-        s.define(value, stylus.url());
-      } else if (key === 'use') {
-        value.forEach(function(func) {
-          if (typeof func === 'function') {
-            s.use(func());
-          }
-        });
-      } else {
-        s.set(key, value);
-      }
-    });
-
-    // Load Nib if available
-    try {
-      s.use(require('nib')());
-    } catch (e) {}
-
-    s.render(function(err, css) {
-      if (err) {
-        grunt.log.error(err);
-        grunt.fail.warn('Stylus failed to compile.');
-
-        callback(css, true);
-      } else {
-        callback(css, null);
-      }
-    });
-  };
 };
