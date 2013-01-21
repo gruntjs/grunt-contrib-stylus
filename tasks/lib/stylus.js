@@ -14,15 +14,18 @@ var stylus = require('stylus');
 exports.init = function(grunt) {
   var exports = {};
 
-  exports.compile = function(srcFile, options, callback) {
+  exports.compileFile = function(srcFile, options, callback) {
     options = grunt.util._.extend({filename: srcFile}, options);
 
+    exports.compile(grunt.file.read(srcFile), options, callback);
+  };
+
+  exports.compile = function(srcCode, options, callback) {
     // Never compress output in debug mode
     if (grunt.option('debug')) {
       options.compress = false;
     }
 
-    var srcCode = grunt.file.read(srcFile);
     var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {

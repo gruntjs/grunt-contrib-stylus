@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 
       var compiled = [];
       grunt.util.async.concatSeries(srcFiles, function(file, next) {
-        stylus.compile(file, options, function(css, err) {
+        stylus.compileFile(file, options, function(css, err) {
           if (!err) {
             compiled.push(css);
             next(null);
