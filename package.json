@@ -20,7 +20,7 @@
       "url": "https://github.com/gruntjs/grunt-contrib-stylus/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "grunt.js",
+  "main": "./tasks/lib/stylus.js",
   "engines": {
     "node": ">= 0.8.0"
   },
