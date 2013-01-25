@@ -43,10 +43,16 @@ Type: `String`
 
 Specifies function name that should be used for embedding images as Data URI.
 
-#### use
+###### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
+
+###### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
+Type: `Array`
+
+Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
+in every single one of said files.
 
 ### Examples
 
@@ -59,6 +65,10 @@ stylus: {
       use: [
         require('fluidity') // use stylus plugin at compile time
       ]
+      import: [    //  @import 'foo', 'bar/moo', etc. into every .styl file
+      'foo',       //  that is compiled. These might be findable based on values you gave
+      'bar/moo'    //  to `paths`, or a plugin you added under `use`
+      ]
     },
     files: {
       'path/to/result.css': 'path/to/source.styl', // 1:1 compile
@@ -67,6 +77,7 @@ stylus: {
   }
 }
 ```
+
 
 ## Release History
 
@@ -82,4 +93,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Jan 23 2013 12:30:01.*
+*This file was generated on Thu Jan 24 2013 20:02:48.*

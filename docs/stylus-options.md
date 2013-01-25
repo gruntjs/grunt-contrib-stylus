@@ -16,7 +16,13 @@ Type: `String`
 
 Specifies function name that should be used for embedding images as Data URI.
 
-## use
+#### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
+
+#### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
+Type: `Array`
+
+Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
+in every single one of said files.
