@@ -84,6 +84,18 @@ module.exports = function(grunt) {
         files: {
           'tmp/relative.css': 'test/fixtures/relative/relative.styl'
         }
+      },
+      import: {
+        files: {
+        'tmp/import.css': 'test/fixtures/import/import.styl'
+        },
+        options: {
+          paths: ['test/fixtures/'],
+          import: [
+           'include/variables',
+           'nib'
+          ]
+        }
       }
     },
 
