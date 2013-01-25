@@ -83,5 +83,16 @@ exports.stylus = {
     test.equal(expected, actual, 'import of relative paths should work without `paths` option');
 
     test.done();
+  },
+  import: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = readFile('tmp/import.css');
+    var expected = readFile('test/expected/import/import.css');
+    test.equal(expected, actual, 'import option should make imported packages available to each compiled styl file');
+
+    test.done();
   }
 };
