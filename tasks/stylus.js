@@ -84,6 +84,10 @@ module.exports = function(grunt) {
             s.use(func());
           }
         });
+      } else if (key === 'import') {
+        value.forEach(function(stylusModule) {
+          s.import(stylusModule);
+        });
       } else {
         s.set(key, value);
       }
