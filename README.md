@@ -11,7 +11,7 @@ npm install grunt-contrib-stylus --save-dev
 ```
 
 [grunt]: http://gruntjs.com/
-[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
+[Getting Started]: http://gruntjs.com/getting-started
 
 
 ## Stylus task
@@ -43,20 +43,16 @@ Type: `String`
 
 Specifies function name that should be used for embedding images as Data URI.
 
-#### use
+###### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
 
-Learn more about `use`: https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn
-
-#### import
+###### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
 Type: `Array`
 
 Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
 in every single one of said files.
-
-Learn more about `import`: https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath
 
 ### Examples
 
@@ -97,4 +93,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Thu Jan 24 2013 20:02:48.*
+*This file was generated on Tue Feb 05 2013 12:48:13.*
