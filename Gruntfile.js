@@ -85,6 +85,17 @@ module.exports = function(grunt) {
           'tmp/relative.css': 'test/fixtures/relative/relative.styl'
         }
       },
+      define: {
+        files: {
+          'tmp/define.css': 'test/fixtures/define/define.styl'
+        },
+        options: {
+          define: {
+            var1: 42,
+            var2: 'Helvetica'
+          }
+        }
+      },
       import: {
         files: {
         'tmp/import.css': 'test/fixtures/import/import.styl'
