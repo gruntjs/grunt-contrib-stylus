@@ -84,6 +84,10 @@ module.exports = function(grunt) {
             s.use(func());
           }
         });
+      } else if (key === 'define') {
+        for (var defineName in value) {
+          s.define(defineName, value[defineName]);
+        }
       } else if (key === 'import') {
         value.forEach(function(stylusModule) {
           s.import(stylusModule);
