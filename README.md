@@ -42,6 +42,11 @@ Type: `String` `Array`
 
 Specifies directories to scan for @import directives when parsing.
 
+#### define
+Type: `Object`
+
+Allows you to define global variables in Gruntfile that will be accessible in Stylus files.
+
 #### urlfunc
 Type: `String`
 
@@ -68,7 +73,7 @@ stylus: {
       urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
       use: [
         require('fluidity') // use stylus plugin at compile time
-      ]
+      ],
       import: [    //  @import 'foo', 'bar/moo', etc. into every .styl file
       'foo',       //  that is compiled. These might be findable based on values you gave
       'bar/moo'    //  to `paths`, or a plugin you added under `use`
@@ -85,6 +90,7 @@ stylus: {
 
 ## Release History
 
+ * 2013-02-21   v0.4.1   Support stylus `define` option.
  * 2013-02-14   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-22   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
  * 2013-01-08   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.file api.
@@ -98,4 +104,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Feb 20 2013 12:36:04.*
+*This file was generated on Fri Feb 22 2013 08:45:38.*
