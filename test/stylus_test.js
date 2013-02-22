@@ -94,5 +94,16 @@ exports.stylus = {
     test.equal(expected, actual, 'import option should make imported packages available to each compiled styl file');
 
     test.done();
+  },
+  define: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = readFile('tmp/define.css');
+    var expected = readFile('test/expected/define/define.css');
+    test.equal(expected, actual, 'variables defined via define object in options should be accessible in stylesheet');
+
+    test.done();
   }
 };

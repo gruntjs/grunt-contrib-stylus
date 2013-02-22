@@ -11,6 +11,11 @@ Type: `String` `Array`
 
 Specifies directories to scan for @import directives when parsing.
 
+## define
+Type: `Object`
+
+Allows you to define global variables in Gruntfile that will be accessible in Stylus files.
+
 ## urlfunc
 Type: `String`
 
