@@ -63,6 +63,11 @@ Type: `Array`
 Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
 in every single one of said files.
 
+
+###### include css
+Type: `Boolean` Default: false
+
+When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
 ### Examples
 
 ```js
@@ -104,4 +109,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Fri Feb 22 2013 08:45:38.*
+*This file was generated on Mon Mar 04 2013 20:53:38.*
