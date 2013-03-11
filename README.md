@@ -95,6 +95,7 @@ stylus: {
 
 ## Release History
 
+ * 2013-03-09   v0.5.0   Upgrade to stylus 0.32.1
  * 2013-02-21   v0.4.1   Support stylus `define` option.
  * 2013-02-14   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-22   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
@@ -109,4 +110,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Mon Mar 04 2013 20:53:38.*
+*This file was generated on Sun Mar 10 2013 19:17:19.*
