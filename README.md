@@ -38,7 +38,7 @@ Default: true
 Specifies if we should compress the compiled css. Compression is always disabled when `--debug` flag is passed to grunt.
 
 #### paths
-Type: `String` `Array`
+Type: `Array`
 
 Specifies directories to scan for @import directives when parsing.
 
@@ -68,6 +68,7 @@ in every single one of said files.
 Type: `Boolean` Default: false
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
+
 ### Examples
 
 ```js
@@ -110,4 +111,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Sun Mar 10 2013 19:17:19.*
+*This file was generated on Tue Apr 16 2013 12:13:36.*
