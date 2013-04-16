@@ -7,7 +7,7 @@ Default: true
 Specifies if we should compress the compiled css. Compression is always disabled when `--debug` flag is passed to grunt.
 
 ## paths
-Type: `String` `Array`
+Type: `Array`
 
 Specifies directories to scan for @import directives when parsing.
 
