@@ -37,18 +37,6 @@ Default: true
 
 Specifies if we should compress the compiled css. Compression is always disabled when `--debug` flag is passed to grunt.
 
-#### linenos
-Type: `Boolean`
-Default: false
-
-Specifies if the generated CSS file should contain comments indicating the corresponding stylus line.
-
-#### firebug
-Type: `Boolean`
-Default: false
-
-Specifies if the generated CSS file should contain debug info that can be used by the FireStylus Firebug plugin
-
 #### paths
 Type: `Array`
 
