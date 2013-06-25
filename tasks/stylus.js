@@ -86,7 +86,11 @@ module.exports = function(grunt) {
         });
       } else if (key === 'define') {
         for (var defineName in value) {
-          s.define(defineName, value[defineName]);
+          var v = value[defineName];
+          if (v.indexOf('#') === 0) {
+            v = new stylus.nodes.Literal(v);
+          }
+          s.define(defineName, v);
         }
       } else if (key === 'import') {
         value.forEach(function(stylusModule) {
