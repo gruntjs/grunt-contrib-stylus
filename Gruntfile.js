@@ -107,6 +107,15 @@ module.exports = function(grunt) {
            'nib'
           ]
         }
+      },
+      banner: {
+        files: {
+          'tmp/banner.css': 'test/fixtures/banner/banner.styl'
+        },
+        options: {
+          paths: ['test/fixtures/'],
+          banner: '/* test css banner */\n'
+        }
       }
     },
 

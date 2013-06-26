@@ -105,5 +105,16 @@ exports.stylus = {
     test.equal(expected, actual, 'variables defined via define object in options should be accessible in stylesheet');
 
     test.done();
+  },
+  banner: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = readFile('tmp/banner.css');
+    var expected = readFile('test/expected/banner/banner.css');
+    test.equal(expected, actual, 'should prefix with baner');
+
+    test.done();
   }
 };
