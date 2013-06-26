@@ -49,3 +49,13 @@ in every single one of said files.
 Type: `Boolean` Default: false
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
+
+#### banner
+Type: `String`
+Default: empty string
+
+This string will be prepended to the beginning of the compiled output. It is processed using [grunt.template.process][], using the default options.
+
+_(Default processing options are explained in the [grunt.template.process][] documentation)_
+
+[grunt.template.process]: https://github.com/gruntjs/grunt/wiki/grunt.template#wiki-grunt-template-process
