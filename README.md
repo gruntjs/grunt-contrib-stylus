@@ -64,24 +64,24 @@ Type: `String`
 
 Specifies function name that should be used for embedding images as Data URI.
 
-#### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
+###### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
 
-#### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
+###### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
 Type: `Array`
 
 Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
 in every single one of said files.
 
 
-#### include css
+###### include css
 Type: `Boolean` Default: false
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
 
-#### banner
+###### banner
 Type: `String`
 Default: empty string
 
@@ -118,6 +118,7 @@ stylus: {
 
 ## Release History
 
+ * 2013-07-11   v0.6.0   Update to stylus 0.33
  * 2013-03-10   v0.5.0   Upgrade to stylus 0.32.1
  * 2013-02-22   v0.4.1   Support stylus `define` option.
  * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
@@ -133,4 +134,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Sat May 11 2013 19:43:15.*
+*This file was generated on Thu Jul 11 2013 10:30:27.*
