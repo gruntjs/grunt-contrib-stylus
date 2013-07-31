@@ -118,6 +118,7 @@ stylus: {
 
 ## Release History
 
+ * 2013-07-31   v0.7.0   Update to stylus 0.35
  * 2013-07-11   v0.6.0   Update to stylus 0.33
  * 2013-03-10   v0.5.0   Upgrade to stylus 0.32.1
  * 2013-02-22   v0.4.1   Support stylus `define` option.
@@ -134,4 +135,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Thu Jul 11 2013 10:30:27.*
+*This file was generated on Wed Jul 31 2013 09:58:22.*
