@@ -118,6 +118,7 @@ stylus: {
 
 ## Release History
 
+ * 2013-08-20   v0.8.0   Update to stylus 0.37.0 and nib to 1.0.0
  * 2013-07-31   v0.7.0   Update to stylus 0.35
  * 2013-07-11   v0.6.0   Update to stylus 0.33
  * 2013-03-10   v0.5.0   Upgrade to stylus 0.32.1
@@ -135,4 +136,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Jul 31 2013 09:58:22.*
+*This file was generated on Tue Aug 20 2013 09:30:35.*
