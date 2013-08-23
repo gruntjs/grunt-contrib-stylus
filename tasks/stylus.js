@@ -105,15 +105,17 @@ module.exports = function(grunt) {
       s.use(require('nib')());
     } catch (e) {}
 
-    s.render(function(err, css) {
-      if (err) {
-        grunt.log.error(err);
-        grunt.fail.warn('Stylus failed to compile.');
+    try {
+      s.render(function(err, css) {
+        if (err) {
+          grunt.log.error(err);
+          grunt.fail.warn('Stylus failed to compile.');
 
-        callback(css, true);
-      } else {
-        callback(css, null);
-      }
-    });
+          callback(css, true);
+        } else {
+          callback(css, null);
+        }
+      });
+    } catch (e) {}
   };
 };
