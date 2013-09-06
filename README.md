@@ -64,24 +64,23 @@ Type: `String`
 
 Specifies function name that should be used for embedding images as Data URI.
 
-###### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
+#### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
 
-###### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
+#### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
 Type: `Array`
 
 Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
 in every single one of said files.
 
-
-###### include css
+#### include css
 Type: `Boolean` Default: false
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
 
-###### banner
+#### banner
 Type: `String`
 Default: empty string
 
@@ -102,9 +101,9 @@ stylus: {
       use: [
         require('fluidity') // use stylus plugin at compile time
       ],
-      import: [    //  @import 'foo', 'bar/moo', etc. into every .styl file
-      'foo',       //  that is compiled. These might be findable based on values you gave
-      'bar/moo'    //  to `paths`, or a plugin you added under `use`
+      import: [      //  @import 'foo', 'bar/moo', etc. into every .styl file
+        'foo',       //  that is compiled. These might be findable based on values you gave
+        'bar/moo'    //  to `paths`, or a plugin you added under `use`
       ]
     },
     files: {
@@ -136,4 +135,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Tue Aug 20 2013 09:30:35.*
+*This file was generated on Fri Sep 06 2013 09:49:55.*

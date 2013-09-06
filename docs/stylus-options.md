@@ -33,24 +33,23 @@ Type: `String`
 
 Specifies function name that should be used for embedding images as Data URI.
 
-#### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
+## [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
 
-#### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
+## [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
 Type: `Array`
 
 Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
 in every single one of said files.
 
-
-#### include css
+## include css
 Type: `Boolean` Default: false
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
 
-#### banner
+## banner
 Type: `String`
 Default: empty string
 

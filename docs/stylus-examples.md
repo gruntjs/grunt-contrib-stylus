@@ -9,9 +9,9 @@ stylus: {
       use: [
         require('fluidity') // use stylus plugin at compile time
       ],
-      import: [    //  @import 'foo', 'bar/moo', etc. into every .styl file
-      'foo',       //  that is compiled. These might be findable based on values you gave
-      'bar/moo'    //  to `paths`, or a plugin you added under `use`
+      import: [      //  @import 'foo', 'bar/moo', etc. into every .styl file
+        'foo',       //  that is compiled. These might be findable based on values you gave
+        'bar/moo'    //  to `paths`, or a plugin you added under `use`
       ]
     },
     files: {
