@@ -80,6 +80,11 @@ Type: `Boolean` Default: false
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
 
+#### [resolve url](http://learnboost.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
+Type: `Boolean` Default: false
+
+Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus.
+
 #### banner
 Type: `String`
 Default: empty string
@@ -135,4 +140,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Fri Sep 06 2013 09:49:55.*
+*This file was generated on Wed Sep 11 2013 22:09:10.*
