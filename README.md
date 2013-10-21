@@ -1,4 +1,4 @@
-# grunt-contrib-stylus [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
+# grunt-contrib-stylus v0.9.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
 
 > Compile Stylus files to CSS.
 
@@ -124,6 +124,7 @@ stylus: {
 
 ## Release History
 
+ * 2013-10-20   v0.9.0   Update to stylus 0.38.0
  * 2013-08-20   v0.8.0   Update to stylus 0.37.0 and nib to 1.0.0
  * 2013-07-31   v0.7.0   Update to stylus 0.35
  * 2013-07-11   v0.6.0   Update to stylus 0.33
@@ -142,4 +143,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Sep 11 2013 22:11:53.*
+*This file was generated on Sun Oct 20 2013 21:43:12.*
