@@ -28,7 +28,10 @@ _Run this task with the `grunt stylus` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
-This task comes preloaded with [nib](http://visionmedia.github.com/nib/).
+This task comes preloaded with [nib](http://visionmedia.github.com/nib/).  
+To use *nib* in your project add it to your `.styl` with `@import 'nib'`
+
+
 ### Options
 
 #### compress
