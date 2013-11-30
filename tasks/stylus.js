@@ -24,8 +24,6 @@ module.exports = function(grunt) {
       grunt.fail.warn('Experimental destination wildcards are no longer supported. please refer to README.');
     }
 
-    grunt.verbose.writeflags(options, 'Options');
-
     grunt.util.async.forEachSeries(this.files, function(f, n) {
       var destFile = path.normalize(f.dest);
       var srcFiles = f.src.filter(function(filepath) {
