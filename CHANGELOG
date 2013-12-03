@@ -1,3 +1,7 @@
+v0.11.0:
+  date: 2013-12-02
+  changes:
+    - Update to stylus 0.41.0
 v0.10.0:
   date: 2013-11-07
   changes:
