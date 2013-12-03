@@ -23,6 +23,10 @@
   "engines": {
     "node": ">= 0.8.0"
   },
+  "files": [
+    "tasks",
+    "LICENSE-MIT"
+  ],
   "scripts": {
     "test": "grunt test"
   },
