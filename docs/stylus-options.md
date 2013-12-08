@@ -1,19 +1,19 @@
 # Options
 
 ## compress
-Type: `Boolean`  
+Type: `Boolean`
 Default: `true`
 
 Specifies if we should compress the compiled css. Compression is always disabled when `--debug` flag is passed to grunt.
 
 ## linenos
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Specifies if the generated CSS file should contain comments indicating the corresponding stylus line.
 
 ## firebug
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Specifies if the generated CSS file should contain debug info that can be used by the FireStylus Firebug plugin
@@ -45,19 +45,19 @@ Import given stylus packages into every compiled `.styl` file, as if you wrote `
 in every single one of said files.
 
 ## include css
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( NOTICE: the object key contains a space )
 
 ## [resolve url](http://learnboost.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus.
 
 ## banner
-Type: `String`  
+Type: `String`
 Default: `''`
 
 This string will be prepended to the beginning of the compiled output. It is processed using [grunt.template.process][], using the default options.
@@ -65,3 +65,9 @@ This string will be prepended to the beginning of the compiled output. It is pro
 _(Default processing options are explained in the [grunt.template.process][] documentation)_
 
 [grunt.template.process]: https://github.com/gruntjs/grunt/wiki/grunt.template#wiki-grunt-template-process
+
+## failOnError
+Type: `Boolean`
+Default: `true`
+
+Fail task if Stylus errors.  Set to `false` to log the error and keep going.  Use to run a (potentially broken) build before setting up a watcher in development.

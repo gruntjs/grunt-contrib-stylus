@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 
     var options = this.options({
       banner: '',
-      compress: true
+      compress: true,
+      failOnError: true
     });
 
     var banner = grunt.template.process(options.banner);
@@ -106,7 +107,9 @@ module.exports = function(grunt) {
     s.render(function(err, css) {
       if (err) {
         grunt.log.error(err);
-        grunt.fail.warn('Stylus failed to compile.');
+        if (options.failOnError) {
+          grunt.fail.warn('Stylus failed to compile.');
+        }
 
         callback(css, true);
       } else {
