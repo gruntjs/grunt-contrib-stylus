@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 
       if (srcFiles.length === 0) {
         // No src files, goto next target. Warn would have been issued above.
-        n();
+        return n();
       }
 
       var compiled = [];
