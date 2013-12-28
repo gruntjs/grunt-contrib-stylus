@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 
       var compiled = [];
       grunt.util.async.concatSeries(srcFiles, function(file, next) {
-        compileStylus(file, options, function(css, err) {
+        compileStylus(file, destFile, options, function(css, err) {
           if (!err) {
             compiled.push(css);
             next(null);
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     }, done);
   });
 
-  var compileStylus = function(srcFile, options, callback) {
+  var compileStylus = function(srcFile, destFile, options, callback) {
     options = grunt.util._.extend({filename: srcFile}, options);
 
     // Never compress output in debug mode
@@ -72,7 +72,11 @@ module.exports = function(grunt) {
     }
 
     var srcCode = grunt.file.read(srcFile);
-    var stylus = require('stylus');
+    var stylus = require('stylus',{
+      srcFile:srcFile,
+      destFile:destFile,
+      gruntOptions:options
+    });
     var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {
