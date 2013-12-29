@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "stylus": "~0.41.0",
-    "nib": "~1.0.1"
+    "nib": "~1.0.1",
+    "fs-extra": "~0.8.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",

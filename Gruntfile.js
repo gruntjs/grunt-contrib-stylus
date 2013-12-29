@@ -16,6 +16,21 @@ module.exports = function(grunt) {
     };
   }
 
+  function copyUrlFunc(node){
+    var stylus = require("stylus");
+    var fs = require("fs-extra");
+    var path = require("path");
+    var compiler = new stylus.Compiler(url);
+    compiler.isURL = true;
+    var url = require("url").parse(node.val).pathname;
+    var fromPath = stylus.utils.lookup(url,this.paths);
+    var filename = this.options.destFile || this.filename;
+    var dirname = path.dirname(filename);
+    var toPath = path.join(dirname,url);
+    fs.copySync(fromPath,toPath);
+    return new stylus.nodes.Literal('url(' + url + ')');
+  }
+
   // Project configuration.
   grunt.initConfig({
     jshint: {
@@ -93,6 +108,16 @@ module.exports = function(grunt) {
           define: {
             var1: 42,
             var2: 'Helvetica'
+          }
+        }
+      },
+      copyurl:{
+        files: {
+          'tmp/copyurl.css': 'test/fixtures/copyurl/copyurl.styl'
+        },
+        options:{
+          define:{
+            copyurl: copyUrlFunc
           }
         }
       },
