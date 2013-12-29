@@ -72,12 +72,12 @@ module.exports = function(grunt) {
     }
 
     var srcCode = grunt.file.read(srcFile);
-    var stylus = require('stylus',{
+    var stylus = require('stylus');
+    var s = stylus(srcCode,{
       srcFile:srcFile,
       destFile:destFile,
       gruntOptions:options
     });
-    var s = stylus(srcCode);
 
     grunt.util._.each(options, function(value, key) {
       if (key === 'urlfunc') {
