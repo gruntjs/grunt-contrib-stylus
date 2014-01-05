@@ -105,8 +105,7 @@ module.exports = function(grunt) {
 
     s.render(function(err, css) {
       if (err) {
-        grunt.log.error(err);
-        grunt.fail.warn('Stylus failed to compile.');
+        grunt.log.warn(err);
 
         callback(css, true);
       } else {
