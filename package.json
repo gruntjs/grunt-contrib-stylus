@@ -31,7 +31,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "stylus": "~0.41.0",
+    "stylus": "~0.42.0",
     "nib": "~1.0.1"
   },
   "devDependencies": {
