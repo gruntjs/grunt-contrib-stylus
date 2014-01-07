@@ -12,6 +12,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
     var done = this.async();
     var path = require('path');
+    var chalk = require('chalk');
 
     var options = this.options({
       banner: '',
@@ -21,7 +22,7 @@ module.exports = function(grunt) {
     var banner = grunt.template.process(options.banner);
 
     if (options.basePath || options.flatten) {
-      grunt.fail.warn('Experimental destination wildcards are no longer supported. please refer to README.');
+      grunt.fail.warn('Experimental destination wildcards are no longer supported. Please refer to README.');
     }
 
     grunt.util.async.forEachSeries(this.files, function(f, n) {
@@ -56,7 +57,7 @@ module.exports = function(grunt) {
           grunt.log.warn('Destination not written because compiled files were empty.');
         } else {
           grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
-          grunt.log.writeln('File ' + destFile.cyan + ' created.');
+          grunt.log.writeln('File ' + chalk.cyan(destFile) + ' created.');
         }
         n();
       });
