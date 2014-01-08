@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v0.11.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
+# grunt-contrib-stylus v0.12.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
 
 > Compile Stylus files to CSS.
 
@@ -95,7 +95,7 @@ This string will be prepended to the beginning of the compiled output. It is pro
 
 _(Default processing options are explained in the [grunt.template.process][] documentation)_
 
-[grunt.template.process]: http://gruntjs.com/api/grunt.template
+[grunt.template.process]: https://github.com/gruntjs/grunt/wiki/grunt.template#wiki-grunt-template-process
 
 ### Examples
 
@@ -124,6 +124,7 @@ stylus: {
 
 ## Release History
 
+ * 2014-01-08   v0.12.0   Update to stylus 0.42.0
  * 2013-12-02   v0.11.0   Update to stylus 0.41.0
  * 2013-11-07   v0.10.0   Update to stylus 0.40.0 and nib 1.0.1
  * 2013-10-20   v0.9.0   Update to stylus 0.38.0
@@ -145,4 +146,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Mon Dec 02 2013 16:05:30.*
+*This file was generated on Wed Jan 08 2014 11:33:52.*
