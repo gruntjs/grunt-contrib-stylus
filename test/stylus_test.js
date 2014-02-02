@@ -73,6 +73,13 @@ exports.stylus = {
 
     test.done();
   },
+  copyurl: function(test){
+    var actual = readFile('tmp/copyurl.css');
+    var expected = readFile('test/expected/copyurl/copyurl.css');
+    test.equal(expected, actual, 'func should be able to get grunt options');
+    test.equal(readFile('tmp/test.png'),readFile('test/expected/copyurl/test.png'),'image should be copyed properly');
+    test.done();
+  },
   relative: function(test) {
     'use strict';
 
