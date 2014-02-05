@@ -116,6 +116,19 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/'],
           banner: '/* test css banner */\n'
         }
+      },
+      error: {
+        files: {
+          'tmp/errors.css': 'test/fixtures/errors/syntax_error.styl'
+        },
+      },
+      nofailonerror: {
+        files: {
+          'tmp/errors.css': 'test/fixtures/errors/syntax_error.styl'
+        },
+        options: {
+          failOnError: false
+        }
       }
     },
 
@@ -134,9 +147,22 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-internal');
 
+  // Run all stylus targets that aren't expected to raise errors
+  grunt.registerTask('safestylus', [
+    'stylus:compile',
+    'stylus:nib',
+    'stylus:autocompress',
+    'stylus:plugin',
+    'stylus:embedurl',
+    'stylus:relative',
+    'stylus:define',
+    'stylus:import',
+    'stylus:banner'
+  ]);
+
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'stylus', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'safestylus', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test', 'build-contrib']);
