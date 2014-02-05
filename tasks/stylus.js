@@ -94,6 +94,8 @@ module.exports = function(grunt) {
         value.forEach(function(stylusModule) {
           s.import(stylusModule);
         });
+      } else if (key === 'resolve url') {
+        s.define("url", stylus.resolver());
       } else {
         s.set(key, value);
       }
