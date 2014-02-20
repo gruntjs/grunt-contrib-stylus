@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 
     var options = this.options({
       banner: '',
-      compress: true
+      compress: true,
+      limit: 300000
     });
 
     var banner = grunt.template.process(options.banner);
@@ -79,7 +80,7 @@ module.exports = function(grunt) {
     grunt.util._.each(options, function(value, key) {
       if (key === 'urlfunc') {
         // Custom name of function for embedding images as Data URI
-        s.define(value, stylus.url());
+        s.define(value, stylus.url({limit: options.limit}));
       } else if (key === 'use') {
         value.forEach(function(func) {
           if (typeof func === 'function') {
