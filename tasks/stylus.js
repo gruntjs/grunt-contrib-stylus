@@ -2,7 +2,7 @@
  * grunt-contrib-stylus
  * http://gruntjs.com/
  *
- * Copyright (c) 2013 Eric Woroshow, contributors
+ * Copyright (c) 2014 Eric Woroshow, contributors
  * Licensed under the MIT license.
  */
 
@@ -79,7 +79,14 @@ module.exports = function(grunt) {
     grunt.util._.each(options, function(value, key) {
       if (key === 'urlfunc') {
         // Custom name of function for embedding images as Data URI
-        s.define(value, stylus.url());
+        if (typeof value === 'string') {
+          s.define(value, stylus.url());
+        } else {
+          s.define(value.name, stylus.url({
+            limit: value.limit ? value.limit : 30000,
+            paths: value.paths ? value.paths : []
+          }));
+        }
       } else if (key === 'use') {
         value.forEach(function(func) {
           if (typeof func === 'function') {
@@ -94,6 +101,8 @@ module.exports = function(grunt) {
         value.forEach(function(stylusModule) {
           s.import(stylusModule);
         });
+      } else if (key === 'resolve url') {
+        s.define('url', stylus.resolver());
       } else {
         s.set(key, value);
       }

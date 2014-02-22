@@ -80,6 +80,28 @@ module.exports = function(grunt) {
           urlfunc: 'embedurl'
         }
       },
+      embedurlObj: {
+        files: {
+          'tmp/embedurlObj.css': 'test/fixtures/embedurl/embedurl.styl'
+        },
+        options: {
+          urlfunc: {
+            name: 'embedurl'
+          }
+        }
+      },
+      urlfuncOpts: {
+        files: {
+          'tmp/embedurlOpts.css': 'test/fixtures/embedurl/embedurlOpts.styl'
+        },
+        options: {
+          urlfunc: {
+            name: 'embedurl',
+            limit: 10,
+            paths: []
+          },
+        }
+      },
       relative: {
         files: {
           'tmp/relative.css': 'test/fixtures/relative/relative.styl'
@@ -94,6 +116,14 @@ module.exports = function(grunt) {
             var1: 42,
             var2: 'Helvetica'
           }
+        }
+      },
+      resolveUrl: {
+        files: {
+          'tmp/resolveUrl.css': 'test/fixtures/resolveUrl/resolveUrl.styl'
+        },
+        options: {
+          'resolve url': true
         }
       },
       import: {

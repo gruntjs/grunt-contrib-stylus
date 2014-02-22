@@ -29,9 +29,17 @@ Type: `Object`
 Allows you to define global variables in Gruntfile that will be accessible in Stylus files.
 
 ## urlfunc
-Type: `String`
+Type: `String|Object`
 
-Specifies function name that should be used for embedding images as Data URI.
+If `String`: specifies function name that should be used for embedding images as Data URI.
+
+If `Object`:
+* `name` - Type: `String`. Function name that should be used for embedding images as Data URI.
+* [ `limit` ] - Type: `Number|Boolean` Default: `30000`. Bytesize limit defaulting to 30Kb (30000), use false to disable the limit.
+* [ `[paths` ] - Type: `Array`, Default: `[]`. Image resolution path(s).
+
+See [url()](http://learnboost.github.io/stylus/docs/functions.url.html) for details.
+
 
 ## [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
@@ -48,13 +56,15 @@ in every single one of said files.
 Type: `Boolean`  
 Default: `false`
 
-When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script. ( **NOTICE:** the object key contains a space `"include css"` )
+When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script.
+( **NOTICE:** the object key contains a space `"include css"` )
 
 ## [resolve url](http://learnboost.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
 Type: `Boolean`  
 Default: `false`
 
-Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus. ( **NOTICE:** the object key contains a space `"resolve url"` )
+Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus.
+( **NOTICE:** the object key contains a space `"resolve url"` and Stylus resolves the url only if it finds the provided file )
 
 ## banner
 Type: `String`  
