@@ -134,6 +134,7 @@ stylus: {
 
 ## Release History
 
+ * 2014-02-22   v0.13.0   Adds Data URI Image Inlining options. Fix "resolve url" option. Use chalk module to colorize terminal output. Emphasize spaces in object keys in the README.
  * 2014-01-08   v0.12.0   Update to stylus 0.42.0
  * 2013-12-02   v0.11.0   Update to stylus 0.41.0
  * 2013-11-07   v0.10.0   Update to stylus 0.40.0 and nib 1.0.1
@@ -156,4 +157,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Sat Feb 22 2014 02:45:07.*
+*This file was generated on Sat Feb 22 2014 02:49:51.*
