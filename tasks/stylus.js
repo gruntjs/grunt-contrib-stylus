@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       compress: true
     });
 
-    var banner = grunt.template.process(options.banner);
+    var banner = options.banner;
 
     if (options.basePath || options.flatten) {
       grunt.fail.warn('Experimental destination wildcards are no longer supported. Please refer to README.');
