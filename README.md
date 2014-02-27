@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v0.13.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
+# grunt-contrib-stylus v0.13.1 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
 
 > Compile Stylus files to CSS.
 
@@ -101,11 +101,7 @@ Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accord
 Type: `String`  
 Default: `''`
 
-This string will be prepended to the beginning of the compiled output. It is processed using [grunt.template.process][], using the default options.
-
-_(Default processing options are explained in the [grunt.template.process][] documentation)_
-
-[grunt.template.process]: https://github.com/gruntjs/grunt/wiki/grunt.template#wiki-grunt-template-process
+This string will be prepended to the beginning of the compiled output.
 
 ### Examples
 
@@ -157,4 +153,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Sat Feb 22 2014 02:49:51.*
+*This file was generated on Thu Feb 27 2014 17:14:01.*
