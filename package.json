@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-stylus",
   "description": "Compile Stylus files to CSS.",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "homepage": "https://github.com/gruntjs/grunt-contrib-stylus",
   "author": {
     "name": "Grunt Team",
