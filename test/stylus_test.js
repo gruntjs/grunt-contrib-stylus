@@ -65,7 +65,7 @@ exports.stylus = {
   embedurl: function(test) {
     'use strict';
 
-    test.expect(3);
+    test.expect(4);
 
     var actual = readFile('tmp/embedurl.css');
     var expected = readFile('test/expected/embedurl/embedurl.css');
@@ -78,6 +78,10 @@ exports.stylus = {
     var actual3 = readFile('tmp/embedurlOpts.css');
     var expected3 = readFile('test/expected/embedurl/embedurlOpts.css');
     test.equal(actual3, expected3, '`embedurlOpts` limit should prevent Data URI embed');
+
+    var actual4 = readFile('tmp/urlfuncLimitFalse.css');
+    var expected4 = readFile('test/expected/embedurl/urlfuncLimitFalse.css');
+    test.equal(actual4, expected4, '`urlfuncLimitFalse` no limit url function');
 
     test.done();
   },

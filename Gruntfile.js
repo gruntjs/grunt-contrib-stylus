@@ -102,6 +102,18 @@ module.exports = function(grunt) {
           },
         }
       },
+      urlfuncLimitFalse: {
+        files: {
+          'tmp/urlfuncLimitFalse.css': 'test/fixtures/embedurl/urlfuncLimitFalse.styl'
+        },
+        options: {
+          urlfunc: {
+            name: 'embedurl',
+            limit: false,
+            paths: []
+          },
+        }
+      },
       relative: {
         files: {
           'tmp/relative.css': 'test/fixtures/relative/relative.styl'
