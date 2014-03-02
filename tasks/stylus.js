@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           s.define(value, stylus.url());
         } else {
           s.define(value.name, stylus.url({
-            limit: value.limit ? value.limit : 30000,
+            limit: value.limit != null ? value.limit : 30000,
             paths: value.paths ? value.paths : []
           }));
         }
