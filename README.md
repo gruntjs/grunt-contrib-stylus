@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v0.13.2 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
+# grunt-contrib-stylus v0.14.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus)
 
 > Compile Stylus files to CSS.
 
@@ -130,6 +130,7 @@ stylus: {
 
 ## Release History
 
+ * 2014-04-08   v0.14.0   Bump stylus to 0.43
  * 2014-03-01   v0.13.2   Fix limit option for urlfunc. Update copyright to 2014
  * 2014-02-27   v0.13.1   grunt.template.process is not needed
  * 2014-02-22   v0.13.0   Adds Data URI Image Inlining options. Fix "resolve url" option. Use chalk module to colorize terminal output. Emphasize spaces in object keys in the README.
@@ -155,4 +156,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Sat Mar 01 2014 22:36:17.*
+*This file was generated on Tue Apr 08 2014 16:12:02.*
