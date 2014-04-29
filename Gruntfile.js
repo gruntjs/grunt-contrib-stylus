@@ -132,12 +132,12 @@ module.exports = function(grunt) {
       },
       defineRaw: {
         files: {
-          'tmp/defineRaw.css' : 'text/fixtures/defineRaw/defineRaw.styl'
+          'tmp/defineRaw.css' : 'test/fixtures/defineRaw/defineRaw.styl'
         },
         options: {
           define: {
             rawVar1: {
-              nestedVar: '42'
+              nestedVar: 42
             }
           },
           // would probably need an option to flag use of raw define

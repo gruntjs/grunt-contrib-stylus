@@ -76,6 +76,7 @@ module.exports = function(grunt) {
     var stylus = require('stylus');
     var s = stylus(srcCode);
 
+
     grunt.util._.each(options, function(value, key) {
       if (key === 'urlfunc') {
         // Custom name of function for embedding images as Data URI
@@ -94,8 +95,9 @@ module.exports = function(grunt) {
           }
         });
       } else if (key === 'define') {
+
         for (var defineName in value) {
-          s.define(defineName, value[defineName]);
+          s.define(defineName, value[defineName], options.rawDefine);
         }
       } else if (key === 'import') {
         value.forEach(function(stylusModule) {
