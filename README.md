@@ -59,6 +59,10 @@ Type: `Object`
 
 Allows you to define global variables in Gruntfile that will be accessible in Stylus files.
 
+#### rawDefine
+
+If set to "true", defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [LearnBoost/stylus#1286](https://github.com/LearnBoost/stylus/issues/1286)
+
 #### urlfunc
 Type: `String|Object`
 
@@ -157,4 +161,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Apr 23 2014 06:19:49.*
+*This file was generated on Tue Apr 29 2014 15:42:52.*
