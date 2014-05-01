@@ -130,6 +130,23 @@ module.exports = function(grunt) {
           }
         }
       },
+      defineRaw: {
+        files: {
+          'tmp/defineRaw.css' : 'test/fixtures/defineRaw/defineRaw.styl'
+        },
+        options: {
+          define: {
+            rawVar: {
+              nestedVar: 42
+            },
+            castedVar: {
+              disc:'outside'
+            }
+          },
+          // would probably need an option to flag use of raw define
+          rawDefine: ['rawVar']
+        }
+      },
       resolveUrl: {
         files: {
           'tmp/resolveUrl.css': 'test/fixtures/resolveUrl/resolveUrl.styl'

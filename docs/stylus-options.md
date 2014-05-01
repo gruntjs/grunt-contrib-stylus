@@ -28,6 +28,13 @@ Type: `Object`
 
 Allows you to define global variables in Gruntfile that will be accessible in Stylus files.
 
+## rawDefine
+Type: `Boolean|Array|String`
+
+If set to "true", defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [LearnBoost/stylus#1286](https://github.com/LearnBoost/stylus/issues/1286)
+
+Allows passing an array or string to specify individual keys to define "raw", casting all other keys as default Stylus behavior.
+
 ## urlfunc
 Type: `String|Object`
 
