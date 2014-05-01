@@ -136,12 +136,15 @@ module.exports = function(grunt) {
         },
         options: {
           define: {
-            rawVar1: {
+            rawVar: {
               nestedVar: 42
+            },
+            castedVar: {
+              disc:'outside'
             }
           },
           // would probably need an option to flag use of raw define
-          rawDefine: true
+          rawDefine: ['rawVar']
         }
       },
       resolveUrl: {

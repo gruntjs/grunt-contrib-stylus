@@ -76,6 +76,23 @@ module.exports = function(grunt) {
     var stylus = require('stylus');
     var s = stylus(srcCode);
 
+    if ( options.rawDefine ) {
+      // convert string option to an array with single value.
+      if ( grunt.util._.isString( options.rawDefine ) ) {
+        options.rawDefine = [options.rawDefine];
+      }
+    }
+
+    function shouldUseRawDefine(key) {
+      if( options.rawDefine === true ) {
+        return true;
+      } else if ( grunt.util._.isArray( options.rawDefine ) ) {
+        return grunt.util._.contains(options.rawDefine, key);
+      } else {
+        return false;
+      }
+    }
+
 
     grunt.util._.each(options, function(value, key) {
       if (key === 'urlfunc') {
@@ -97,8 +114,10 @@ module.exports = function(grunt) {
       } else if (key === 'define') {
 
         for (var defineName in value) {
-          s.define(defineName, value[defineName], options.rawDefine);
+          s.define(defineName, value[defineName], shouldUseRawDefine(defineName));
         }
+      } else if (key === 'rawDefine') {
+        // do nothing.
       } else if (key === 'import') {
         value.forEach(function(stylusModule) {
           s.import(stylusModule);
