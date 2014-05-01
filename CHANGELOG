@@ -1,3 +1,7 @@
+v0.15.1:
+  date: 2014-05-01
+  changes:
+    - Add support for rawDefine.
 v0.15.0:
   date: 2014-04-23
   changes:
