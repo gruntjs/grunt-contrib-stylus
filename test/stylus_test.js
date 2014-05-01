@@ -118,6 +118,17 @@ exports.stylus = {
 
     test.done();
   },
+  defineRaw: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = readFile('tmp/defineRaw.css');
+    var expected = readFile('test/expected/defineRaw/defineRaw.css');
+    test.equal(expected, actual, 'hashes defined via define object in options should be accessible in stylesheet');
+
+    test.done();
+  },
   banner: function(test) {
     'use strict';
 
