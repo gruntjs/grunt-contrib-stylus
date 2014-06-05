@@ -31,7 +31,7 @@
     "test": "grunt jshint test"
   },
   "dependencies": {
-    "stylus": "~0.46.0",
+    "stylus": "~0.46.2",
     "nib": "~1.0.1",
     "chalk": "~0.4.0",
     "async": "^0.8.0",
