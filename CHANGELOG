@@ -1,3 +1,7 @@
+v0.18.0:
+  date: 2014-07-02
+  changes:
+    - Bump stylus to 0.47.
 v0.17.0:
   date: 2014-06-04
   changes:
