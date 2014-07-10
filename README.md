@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v0.18.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus"><img src="https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master" alt="Build Status: Windows" height="18" /></a>
+# grunt-contrib-stylus v0.19.0-pre [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus"><img src="https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master" alt="Build Status: Windows" height="18" /></a>
 
 > Compile Stylus files to CSS.
 
@@ -137,6 +137,7 @@ stylus: {
 
 ## Release History
 
+ * ----------   v0.19.0-pre   Bump dependencies.
  * 2014-07-02   v0.18.0   Bump stylus to 0.47.
  * 2014-06-04   v0.17.0   Bump stylus to 0.46.
  * 2014-05-12   v0.16.0   Bump stylus to 0.45.
@@ -168,4 +169,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed Jul 02 2014 14:38:29.*
+*This file was generated on Thu Jul 10 2014 14:11:28.*
