@@ -68,7 +68,8 @@ module.exports = function(grunt) {
         },
         options: {
           use: [
-            testPlugin
+            testPlugin,
+            testPlugin()
           ]
         }
       },

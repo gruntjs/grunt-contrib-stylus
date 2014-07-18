@@ -111,7 +111,8 @@ module.exports = function(grunt) {
       } else if (key === 'use') {
         value.forEach(function(func) {
           if (typeof func === 'function') {
-            s.use(func());
+            func = func.length ? func : func();
+            s.use(func);
           }
         });
       } else if (key === 'define') {
