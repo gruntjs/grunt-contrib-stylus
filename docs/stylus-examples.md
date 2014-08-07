@@ -7,6 +7,9 @@ stylus: {
       paths: ['path/to/import', 'another/to/import'],
       urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
       use: [
+        function () {
+          return testPlugin('yep'); // plugin with options
+        },
         require('fluidity') // use stylus plugin at compile time
       ],
       import: [      //  @import 'foo', 'bar/moo', etc. into every .styl file

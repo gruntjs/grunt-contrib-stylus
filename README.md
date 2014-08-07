@@ -119,6 +119,9 @@ stylus: {
       paths: ['path/to/import', 'another/to/import'],
       urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
       use: [
+        function () {
+          return testPlugin('yep'); // plugin with options
+        },
         require('fluidity') // use stylus plugin at compile time
       ],
       import: [      //  @import 'foo', 'bar/moo', etc. into every .styl file
@@ -169,4 +172,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Thu Jul 10 2014 14:11:28.*
+*This file was generated on Thu Aug 07 2014 10:15:19.*
