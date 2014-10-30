@@ -31,11 +31,12 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "stylus": "~0.49.0",
-    "nib": "~1.0.3",
-    "chalk": "~0.5.1",
     "async": "~0.9.0",
-    "lodash": "~2.4.1"
+    "chalk": "~0.5.1",
+    "lodash": "~2.4.1",
+    "nib": "~1.0.3",
+    "source-map-url": "^0.3.0",
+    "stylus": "~0.49.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.10.0",
