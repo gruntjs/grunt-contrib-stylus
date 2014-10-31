@@ -73,9 +73,8 @@ module.exports = function(grunt) {
             grunt.file.write(destFile + '.map', sourcemaps.join(grunt.util.normalizelf(grunt.util.linefeed)));
             grunt.log.writeln('File ' + chalk.cyan(destFile + '.map') + ' created.');
 
-            compiled[0] = sourceMapUrl.removeFrom(compiled[0]);
-
             if(options.sourcemap.comment) {
+              compiled[0] = sourceMapUrl.removeFrom(compiled[0]);
               compiled[0] += '/*# sourceMappingURL=' + path.basename(destFile) + '.map */';
             }
           }
