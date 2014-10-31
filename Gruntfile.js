@@ -194,7 +194,8 @@ module.exports = function(grunt) {
              `sourceRoot`  "sourceRoot" property of the generated sourcemap
              `basePath`    Base path from which sourcemap and all sources are relative (default: `.`)
              */
-            comment: 'true'
+            comment: true,
+            sourceRoot: '/' // style sources relative to built css
           }
         }
       }

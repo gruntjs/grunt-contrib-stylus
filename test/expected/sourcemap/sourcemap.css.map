@@ -1,1 +1,1 @@
-{"version":3,"sources":["test/fixtures/sourcemap/sourcemap.styl","test/fixtures/relative/relative.styl"],"names":[],"mappings":"AAAA,KACE,WAAW,KCAb,KACE,KAAK,QACL,UAAU","file":"sourcemap.css"}
+{"version":3,"sources":["test/fixtures/sourcemap/sourcemap.styl","test/fixtures/relative/relative.styl"],"names":[],"mappings":"AAAA,KACE,WAAW,KCAb,KACE,KAAK,QACL,UAAU","file":"sourcemap.css","sourceRoot":"/"}

@@ -64,7 +64,7 @@ module.exports = function(grunt) {
         if (compiled.length < 1) {
           grunt.log.warn('Destination not written because compiled files were empty.');
         } else {
-          if(options.sourcemap && options.sourcemap.comment) {
+          if(options.sourcemap && !options.sourcemap.inline) {
 
             if(sourcemaps.length > 1) {
               grunt.fail.warn('Must use 1:1 compile when using sourcemaps');
@@ -75,7 +75,9 @@ module.exports = function(grunt) {
 
             compiled[0] = sourceMapUrl.removeFrom(compiled[0]);
 
-            compiled[0] += '/*# sourceMappingURL=' + path.basename(destFile) + '.map */';
+            if(options.sourcemap.comment) {
+              compiled[0] += '/*# sourceMappingURL=' + path.basename(destFile) + '.map */';
+            }
           }
           grunt.log.writeln('File ' + chalk.cyan(destFile) + ' created.');
           grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
