@@ -180,7 +180,20 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/'],
           banner: '/* test css banner */\n'
         }
-      }
+      },
+      sourcemap: {
+        files: {
+          'tmp/sourcemap.css': 'test/fixtures/sourcemap/sourcemap.styl',
+        },
+        options: {
+          paths: ['test/fixtures/include'],
+          sourcemap: {
+            sourceRoot: '/',
+          },
+          dest: 'tmp' // Grunt ignores this, but it's required to produce the 
+                      // correct relative paths, see stylus issue #1669
+        }
+      },
     },
 
     // Unit tests.

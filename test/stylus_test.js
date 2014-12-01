@@ -150,5 +150,20 @@ exports.stylus = {
     test.equal(expected, actual, 'should resolve import urls');
 
     test.done();
+  },
+  sourcemap: function(test) {
+    'use strict';
+
+    test.expect(2);
+
+    var actual = readFile('tmp/sourcemap.css');
+    var expected = readFile('test/expected/sourcemap/sourcemap.css');
+    test.equal(expected, actual, 'should link to sourcemap from output css');
+
+    var actual2 = readFile('tmp/sourcemap.css.map');
+    var expected2 = readFile('test/expected/sourcemap/sourcemap.css.map');
+    test.equal(expected2, actual2, 'should generate sourcemap');
+
+    test.done();
   }
 };

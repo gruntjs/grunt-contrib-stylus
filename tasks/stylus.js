@@ -46,10 +46,12 @@ module.exports = function(grunt) {
       }
 
       var compiled = [];
+      var sourcemaps = [];
       async.concatSeries(srcFiles, function(file, next) {
-        compileStylus(file, options, function(css, err) {
+        compileStylus(file, options, function(css, sourcemap, err) {
           if (!err) {
             compiled.push(css);
+            sourcemaps.push(sourcemap);
             next(null);
           } else {
             n(false);
@@ -61,6 +63,12 @@ module.exports = function(grunt) {
         } else {
           grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
           grunt.log.writeln('File ' + chalk.cyan(destFile) + ' created.');
+
+          if (sourcemaps.length > 0){
+            var destMapFile = destFile + '.map';
+            grunt.file.write(destMapFile, banner + sourcemaps.join(grunt.util.normalizelf(grunt.util.linefeed)));
+            grunt.log.writeln('File ' + chalk.cyan(destMapFile) + ' created.');
+          }
         }
         n();
       });
@@ -142,9 +150,9 @@ module.exports = function(grunt) {
         grunt.log.error(err);
         grunt.fail.warn('Stylus failed to compile.');
 
-        callback(css, true);
+        callback(css, JSON.stringify(s.sourcemap), true);
       } else {
-        callback(css, null);
+        callback(css, JSON.stringify(s.sourcemap), null);
       }
     });
   };
