@@ -180,6 +180,24 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/'],
           banner: '/* test css banner */\n'
         }
+      },
+      sourceMap: {
+        files: {
+          'tmp/sourcemap.css': 'test/fixtures/sourcemap/sourcemap.styl'
+        },
+        options: {
+          paths: ['test/fixtures/'],
+          sourcemap: {
+            /* from: http://learnboost.github.io/stylus/docs/sourcemaps.html
+             `comment`     Adds a comment with the `sourceMappingURL` to the generated CSS (default: `true`)
+             `inline`      Inlines the sourcemap with full source text in base64 format (default: `false`)
+             `sourceRoot`  "sourceRoot" property of the generated sourcemap
+             `basePath`    Base path from which sourcemap and all sources are relative (default: `.`)
+             */
+            comment: true,
+            sourceRoot: '/' // style sources relative to built css
+          }
+        }
       }
     },
 

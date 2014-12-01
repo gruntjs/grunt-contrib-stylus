@@ -13,9 +13,10 @@ module.exports = function(grunt) {
   var _ = require('lodash');
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-     var done = this.async();
+    var done = this.async();
     var path = require('path');
     var chalk = require('chalk');
+    var sourceMapUrl = require("source-map-url");
 
     var options = this.options({
       banner: '',
@@ -45,11 +46,15 @@ module.exports = function(grunt) {
         return n();
       }
 
-      var compiled = [];
+      var compiled = [],
+        sourcemaps = [];
       async.concatSeries(srcFiles, function(file, next) {
-        compileStylus(file, options, function(css, err) {
+        compileStylus(file, options, function(css, map, err) {
           if (!err) {
             compiled.push(css);
+            if(map) {
+              sourcemaps.push(map);
+            }
             next(null);
           } else {
             n(false);
@@ -59,8 +64,22 @@ module.exports = function(grunt) {
         if (compiled.length < 1) {
           grunt.log.warn('Destination not written because compiled files were empty.');
         } else {
-          grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
+          if(options.sourcemap && !options.sourcemap.inline) {
+
+            if(sourcemaps.length > 1) {
+              grunt.fail.warn('Must use 1:1 compile when using sourcemaps');
+            }
+
+            grunt.file.write(destFile + '.map', sourcemaps.join(grunt.util.normalizelf(grunt.util.linefeed)));
+            grunt.log.writeln('File ' + chalk.cyan(destFile + '.map') + ' created.');
+
+            if(options.sourcemap.comment) {
+              compiled[0] = sourceMapUrl.removeFrom(compiled[0]);
+              compiled[0] += '/*# sourceMappingURL=' + path.basename(destFile) + '.map */';
+            }
+          }
           grunt.log.writeln('File ' + chalk.cyan(destFile) + ' created.');
+          grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
         }
         n();
       });
@@ -142,9 +161,14 @@ module.exports = function(grunt) {
         grunt.log.error(err);
         grunt.fail.warn('Stylus failed to compile.');
 
-        callback(css, true);
+        callback(css, null, true);
       } else {
-        callback(css, null);
+        if(options.sourcemap) {
+          callback(css, JSON.stringify(s.sourcemap), null);
+        } else {
+          callback(css, null);
+        }
+
       }
     });
   };
