@@ -1,9 +1,9 @@
+'use strict';
+
 var grunt = require('grunt');
 var fs = require('fs');
 
 function readFile(file) {
-  'use strict';
-
   var contents = grunt.file.read(file);
 
   if (process.platform === 'win32') {
@@ -15,8 +15,6 @@ function readFile(file) {
 
 exports.stylus = {
   compile: function(test) {
-    'use strict';
-
     test.expect(2);
 
     var actual = readFile('tmp/stylus.css');
@@ -30,8 +28,6 @@ exports.stylus = {
     test.done();
   },
   nib: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/nib_.css');
@@ -41,8 +37,6 @@ exports.stylus = {
     test.done();
   },
   autocompress: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/autocompress.css');
@@ -52,8 +46,6 @@ exports.stylus = {
     test.done();
   },
   plugin: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/plugin.css');
@@ -63,8 +55,6 @@ exports.stylus = {
     test.done();
   },
   embedurl: function(test) {
-    'use strict';
-
     test.expect(4);
 
     var actual = readFile('tmp/embedurl.css');
@@ -86,8 +76,6 @@ exports.stylus = {
     test.done();
   },
   relative: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/relative.css');
@@ -97,8 +85,6 @@ exports.stylus = {
     test.done();
   },
   import: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/import.css');
@@ -108,8 +94,6 @@ exports.stylus = {
     test.done();
   },
   define: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/define.css');
@@ -119,8 +103,6 @@ exports.stylus = {
     test.done();
   },
   defineRaw: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/defineRaw.css');
@@ -130,8 +112,6 @@ exports.stylus = {
     test.done();
   },
   banner: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/banner.css');
@@ -141,8 +121,6 @@ exports.stylus = {
     test.done();
   },
   resolveUrl: function(test) {
-    'use strict';
-
     test.expect(1);
 
     var actual = readFile('tmp/resolveUrl.css');
