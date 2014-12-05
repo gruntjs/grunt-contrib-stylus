@@ -24,6 +24,8 @@ module.exports = function(grunt) {
 
     var banner = options.banner;
 
+    var filesCreatedCount = 0;
+
     if (options.basePath || options.flatten) {
       grunt.fail.warn('Experimental destination wildcards are no longer supported. Please refer to README.');
     }
@@ -60,11 +62,16 @@ module.exports = function(grunt) {
           grunt.log.warn('Destination not written because compiled files were empty.');
         } else {
           grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
-          grunt.log.writeln('File ' + chalk.cyan(destFile) + ' created.');
+          grunt.verbose.writeln('File ' + chalk.cyan(destFile) + ' created.');
+          filesCreatedCount++;
         }
         n();
       });
-    }, done);
+    }, function() {
+      grunt.log.ok(filesCreatedCount + ' ' + grunt.util.pluralize(filesCreatedCount, 'file/files') + ' created.');
+
+      done();
+    });
   });
 
   var compileStylus = function(srcFile, options, callback) {
