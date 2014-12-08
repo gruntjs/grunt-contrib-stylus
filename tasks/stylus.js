@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   var _ = require('lodash');
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
-     var done = this.async();
+    var done = this.async();
     var path = require('path');
     var chalk = require('chalk');
 
@@ -37,9 +37,8 @@ module.exports = function(grunt) {
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
-        } else {
-          return true;
         }
+        return true;
       });
 
       if (srcFiles.length === 0) {
@@ -103,7 +102,6 @@ module.exports = function(grunt) {
       }
     }
 
-
     _.each(options, function(value, key) {
       if (key === 'urlfunc') {
         // Custom name of function for embedding images as Data URI
@@ -122,7 +120,6 @@ module.exports = function(grunt) {
           }
         });
       } else if (key === 'define') {
-
         for (var defineName in value) {
           s.define(defineName, value[defineName], shouldUseRawDefine(defineName));
         }
@@ -148,11 +145,8 @@ module.exports = function(grunt) {
       if (err) {
         grunt.log.error(err);
         grunt.fail.warn('Stylus failed to compile.');
-
-        callback(css, true);
-      } else {
-        callback(css, null);
       }
+      callback(css, err ? err : false);
     });
   };
 };
