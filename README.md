@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v0.20.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus"><img src="https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master" alt="Build Status: Windows" height="18" /></a>
+# grunt-contrib-stylus v0.20.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
 
 > Compile Stylus files to CSS.
 
@@ -29,6 +29,7 @@ _Run this task with the `grunt stylus` command._
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 This task comes preloaded with [nib](http://tj.github.io/nib/).
+
 ### Options
 
 #### compress
@@ -173,4 +174,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Mon Sep 22 2014 20:20:17.*
+*This file was generated on Fri Dec 26 2014 13:25:05.*
