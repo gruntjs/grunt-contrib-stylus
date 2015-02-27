@@ -1,7 +1,6 @@
 'use strict';
 
 var grunt = require('grunt');
-var fs = require('fs');
 
 function readFile(file) {
   var contents = grunt.file.read(file);
