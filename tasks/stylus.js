@@ -105,7 +105,7 @@ module.exports = function(grunt) {
     _.each(options, function(value, key) {
       if (key === 'urlfunc') {
         // Custom name of function for embedding images as Data URI
-        if (typeof value === 'string') {
+        if (_.isString(value)) {
           s.define(value, stylus.url());
         } else {
           s.define(value.name, stylus.url({
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
         }
       } else if (key === 'use') {
         value.forEach(function(func) {
-          if (typeof func === 'function') {
+          if (_.isFunction(func)) {
             s.use(func());
           }
         });
