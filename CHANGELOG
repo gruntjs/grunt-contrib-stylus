@@ -1,3 +1,7 @@
+v0.21.0:
+  date: 2015-03-09
+  changes:
+    - Bump stylus to 0.50.
 v0.20.0:
   date: 2014-09-22
   changes:
