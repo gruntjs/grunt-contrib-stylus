@@ -141,6 +141,7 @@ stylus: {
 
 ## Release History
 
+ * 2015-03-09   v0.21.0   Bump stylus to 0.50.
  * 2014-09-22   v0.20.0   Bump stylus to 0.49.
  * 2014-08-26   v0.19.0   Bump dependencies. Bump stylus to 0.48.
  * 2014-07-02   v0.18.0   Bump stylus to 0.47.
@@ -174,4 +175,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Mon Mar 09 2015 18:35:45.*
+*This file was generated on Mon Mar 09 2015 18:36:36.*
