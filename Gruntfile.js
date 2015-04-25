@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   function testPlugin(param) {
     param = param || 'nope';
 
-    return function(style){
+    return function(style) {
       style.define('test-plugin', param);
     };
   }
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
             name: 'embedurl',
             limit: 10,
             paths: []
-          },
+          }
         }
       },
       urlfuncLimitFalse: {
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
             name: 'embedurl',
             limit: false,
             paths: []
-          },
+          }
         }
       },
       relative: {
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
       },
       defineRaw: {
         files: {
-          'tmp/defineRaw.css' : 'test/fixtures/defineRaw/defineRaw.styl'
+          'tmp/defineRaw.css': 'test/fixtures/defineRaw/defineRaw.styl'
         },
         options: {
           define: {
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
               nestedVar: 42
             },
             castedVar: {
-              disc:'outside'
+              disc: 'outside'
             }
           },
           // would probably need an option to flag use of raw define

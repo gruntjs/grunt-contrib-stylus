@@ -85,21 +85,20 @@ module.exports = function(grunt) {
     var stylus = require('stylus');
     var s = stylus(srcCode);
 
-    if ( options.rawDefine ) {
+    if (options.rawDefine) {
       // convert string option to an array with single value.
-      if ( _.isString( options.rawDefine ) ) {
+      if (_.isString(options.rawDefine)) {
         options.rawDefine = [options.rawDefine];
       }
     }
 
     function shouldUseRawDefine(key) {
-      if( options.rawDefine === true ) {
+      if (options.rawDefine === true) {
         return true;
-      } else if ( _.isArray( options.rawDefine ) ) {
+      } else if (_.isArray(options.rawDefine)) {
         return _.contains(options.rawDefine, key);
-      } else {
-        return false;
       }
+      return false;
     }
 
     _.each(options, function(value, key) {
@@ -109,7 +108,7 @@ module.exports = function(grunt) {
           s.define(value, stylus.url());
         } else {
           s.define(value.name, stylus.url({
-            limit: value.limit != null ? value.limit : 30000,
+            limit: value.limit !== null ? value.limit : 30000,
             paths: value.paths ? value.paths : []
           }));
         }
