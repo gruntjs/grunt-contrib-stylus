@@ -1,19 +1,12 @@
 {
   "name": "grunt-contrib-stylus",
-  "description": "Compile Stylus files to CSS.",
+  "description": "Compile Stylus files to CSS",
   "version": "0.21.0",
-  "homepage": "https://github.com/gruntjs/grunt-contrib-stylus",
   "author": {
     "name": "Grunt Team",
     "url": "http://gruntjs.com/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/gruntjs/grunt-contrib-stylus.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gruntjs/grunt-contrib-stylus/issues"
-  },
+  "repository": "gruntjs/grunt-contrib-stylus",
   "licenses": [
     {
       "type": "MIT",
@@ -21,12 +14,8 @@
     }
   ],
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">=0.10.0"
   },
-  "files": [
-    "tasks",
-    "LICENSE-MIT"
-  ],
   "scripts": {
     "test": "grunt test"
   },
@@ -50,6 +39,9 @@
   },
   "keywords": [
     "gruntplugin"
+  ],
+  "files": [
+    "tasks"
   ],
   "appveyor_id": "3f708w3tww2lem3o"
 }
