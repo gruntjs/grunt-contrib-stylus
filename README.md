@@ -1,6 +1,6 @@
 # grunt-contrib-stylus v0.21.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
 
-> Compile Stylus files to CSS.
+> Compile Stylus files to CSS
 
 
 
@@ -63,7 +63,7 @@ Allows you to define global variables in Gruntfile that will be accessible in St
 #### rawDefine
 Type: `Boolean|Array|String`
 
-If set to "true", defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [LearnBoost/stylus#1286](https://github.com/LearnBoost/stylus/issues/1286)
+If set to "true", defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [stylus/stylus#1286](https://github.com/stylus/stylus/issues/1286)
 
 Allows passing an array or string to specify individual keys to define "raw", casting all other keys as default Stylus behavior.
 
@@ -77,15 +77,15 @@ If `Object`:
 * [ `limit` ] - Type: `Number|Boolean` Default: `30000`. Bytesize limit defaulting to 30Kb (30000), use false to disable the limit.
 * [ `[paths` ] - Type: `Array`, Default: `[]`. Image resolution path(s).
 
-See [url()](http://learnboost.github.io/stylus/docs/functions.url.html) for details.
+See [url()](http://stylus.github.io/stylus/docs/functions.url.html) for details.
 
 
-#### [use](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#usefn)
+#### [use](https://github.com/stylus/stylus/blob/master/docs/js.md#usefn)
 Type: `Array`
 
 Allows passing of stylus plugins to be used during compile.
 
-#### [import](https://github.com/LearnBoost/stylus/blob/master/docs/js.md#importpath)
+#### [import](https://github.com/stylus/stylus/blob/master/docs/js.md#importpath)
 Type: `Array`
 
 Import given stylus packages into every compiled `.styl` file, as if you wrote `@import '...'`
@@ -98,7 +98,7 @@ Default: `false`
 When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script.
 ( **NOTICE:** the object key contains a space `"include css"` )
 
-#### [resolve url](http://learnboost.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
+#### [resolve url](http://stylus.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
 Type: `Boolean`  
 Default: `false`
 
@@ -175,4 +175,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Mon Mar 09 2015 18:36:36.*
+*This file was generated on Wed May 13 2015 12:36:01.*
