@@ -38,6 +38,8 @@ module.exports = function(grunt) {
         destFile = destFile.replace('//', '/');
       }
 
+      options.dest = destFile;
+
       var srcFiles = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
