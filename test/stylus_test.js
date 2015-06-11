@@ -127,5 +127,23 @@ exports.stylus = {
     test.equal(expected, actual, 'should resolve import urls');
 
     test.done();
+  },
+  relativeDestIn: function(test) {
+    test.expect(1);
+
+    var actual = readFile('tmp/test/fixtures/relativeDest/out/relativeDest.css');
+    var expected = readFile('test/expected/relativeDest/relativeDest.css');
+    test.equal(expected, actual, 'should generate file with relative dest');
+
+    test.done();
+  },
+  relativeDestOut: function(test) {
+    test.expect(1);
+
+    var actual = readFile('tmp/test/relativeDest.css');
+    var expected = readFile('test/expected/relativeDest/relativeDest.css');
+    test.equal(expected, actual, 'should generate file with relative dest');
+
+    test.done();
   }
 };

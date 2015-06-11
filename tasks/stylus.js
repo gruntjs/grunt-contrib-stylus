@@ -32,6 +32,12 @@ module.exports = function(grunt) {
 
     async.forEachSeries(this.files, function(f, n) {
       var destFile = path.normalize(f.dest);
+
+      if (f.relativeDest) {
+        destFile = path.dirname(f.dest) + '/' + f.relativeDest + '/' + path.basename(f.dest);
+        destFile = destFile.replace('//', '/');
+      }
+
       var srcFiles = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {

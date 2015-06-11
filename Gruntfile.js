@@ -180,6 +180,21 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/'],
           banner: '/* test css banner */\n'
         }
+      },
+      relativeDest: {
+        files: [{
+          expand: true,
+          relativeDest: '/out',
+          src: ['test/fixtures/relativeDest/relativeDest.styl'],
+          dest: 'tmp',
+          ext: '.css'
+        }, {
+          expand: true,
+          relativeDest: '../../',
+          src: ['test/fixtures/relativeDest/relativeDest.styl'],
+          dest: 'tmp',
+          ext: '.css'
+        }]
       }
     },
 
