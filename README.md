@@ -48,7 +48,7 @@ Specifies if the generated CSS file should contain comments indicating the corre
 Type: `Boolean`  
 Default: `false`
 
-Specifies if the generated CSS file should contain debug info that can be used by the FireStylus Firebug plugin
+Specifies if the generated CSS file should contain debug info that can be used by the FireStylus Firebug plugin.
 
 #### paths
 Type: `Array`
@@ -148,19 +148,19 @@ stylus: {
  * 2014-06-04   v0.17.0   Bump stylus to 0.46.
  * 2014-05-12   v0.16.0   Bump stylus to 0.45.
  * 2014-05-01   v0.15.1   Add support for rawDefine.
- * 2014-04-23   v0.15.0   Bump stylus to 0.44
- * 2014-04-08   v0.14.0   Bump stylus to 0.43
- * 2014-03-01   v0.13.2   Fix limit option for urlfunc. Update copyright to 2014
- * 2014-02-27   v0.13.1   grunt.template.process is not needed
+ * 2014-04-23   v0.15.0   Bump stylus to 0.44.
+ * 2014-04-08   v0.14.0   Bump stylus to 0.43.
+ * 2014-03-01   v0.13.2   Fix limit option for urlfunc. Update copyright to 2014.
+ * 2014-02-27   v0.13.1   grunt.template.process is not needed.
  * 2014-02-22   v0.13.0   Adds Data URI Image Inlining options. Fix "resolve url" option. Use chalk module to colorize terminal output. Emphasize spaces in object keys in the README.
- * 2014-01-08   v0.12.0   Update to stylus 0.42.0
- * 2013-12-02   v0.11.0   Update to stylus 0.41.0
- * 2013-11-07   v0.10.0   Update to stylus 0.40.0 and nib 1.0.1
- * 2013-10-20   v0.9.0   Update to stylus 0.38.0
- * 2013-08-20   v0.8.0   Update to stylus 0.37.0 and nib to 1.0.0
- * 2013-07-31   v0.7.0   Update to stylus 0.35
- * 2013-07-11   v0.6.0   Update to stylus 0.33
- * 2013-03-10   v0.5.0   Upgrade to stylus 0.32.1
+ * 2014-01-08   v0.12.0   Update to stylus 0.42.0.
+ * 2013-12-02   v0.11.0   Update to stylus 0.41.0.
+ * 2013-11-07   v0.10.0   Update to stylus 0.40.0 and nib 1.0.1.
+ * 2013-10-20   v0.9.0   Update to stylus 0.38.0.
+ * 2013-08-20   v0.8.0   Update to stylus 0.37.0 and nib to 1.0.0.
+ * 2013-07-31   v0.7.0   Update to stylus 0.35.
+ * 2013-07-11   v0.6.0   Update to stylus 0.33.
+ * 2013-03-10   v0.5.0   Upgrade to stylus 0.32.1.
  * 2013-02-22   v0.4.1   Support stylus `define` option.
  * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
