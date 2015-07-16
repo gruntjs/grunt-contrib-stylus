@@ -33,8 +33,8 @@ module.exports = function(grunt) {
     async.forEachSeries(this.files, function(f, n) {
       var destFile = path.normalize(f.dest);
 
-      if (f.relativeDest) {
-        destFile = path.dirname(f.dest) + '/' + f.relativeDest + '/' + path.basename(f.dest);
+      if (options.relativeDest) {
+        destFile = path.dirname(f.dest) + '/' + options.relativeDest + '/' + path.basename(f.dest);
         destFile = destFile.replace('//', '/');
       }
 
