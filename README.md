@@ -111,6 +111,23 @@ Default: `''`
 
 This string will be prepended to the beginning of the compiled output.
 
+
+##relativeDest
+Type: `String`
+Default: `''`
+
+Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards
+For example 
+```js
+relativeDest: 'out',
+files: [{
+   src: ['src/components/*/*.styl'],
+   ext: '.css'
+   }]
+```
+will generate `src/components/*/out/*.css` files.
+
+
 ### Examples
 
 ```js
@@ -118,6 +135,8 @@ stylus: {
   compile: {
     options: {
       paths: ['path/to/import', 'another/to/import'],
+      relativeDest: '../out', //path to be joined and resolved with each file dest to get new one
+                              //mostly useful for files specified using wildcards
       urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
       use: [
         function () {

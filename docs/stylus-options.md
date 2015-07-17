@@ -70,7 +70,10 @@ When including a css file in your app.styl by using @import "style.css", by defa
 Type: `Boolean`  
 Default: `false`
 
-Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus.
+Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus. 
+
+_All urls are resolved relatively to position of resulting `.css` file_
+
 ( **NOTICE:** the object key contains a space `"resolve url"` and Stylus resolves the url only if it finds the provided file )
 
 ## banner
@@ -78,3 +81,18 @@ Type: `String`
 Default: `''`
 
 This string will be prepended to the beginning of the compiled output.
+
+##relativeDest
+Type: `String`
+Default: `''`
+
+Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards
+For example 
+```js
+relativeDest: 'out',
+files: [{
+   src: ['src/components/*/*.styl'],
+   ext: '.css'
+   }]
+```
+will generate `src/components/*/out/*.css` files.
