@@ -71,7 +71,7 @@ module.exports = function(grunt) {
         options: {
           use: [
             testPlugin,
-            function () {
+            function() {
               return testPlugin('yep');
             }
           ]
@@ -162,13 +162,13 @@ module.exports = function(grunt) {
       },
       import: {
         files: {
-        'tmp/import.css': 'test/fixtures/import/import.styl'
+          'tmp/import.css': 'test/fixtures/import/import.styl'
         },
         options: {
           paths: ['test/fixtures/'],
           import: [
-           'include/variables',
-           'nib'
+            'include/variables',
+            'nib'
           ]
         }
       },
@@ -180,6 +180,29 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/'],
           banner: '/* test css banner */\n'
         }
+      },
+      relativeDestOut: {
+        options: {
+          relativeDest: '/out'
+        },
+        files: [{
+          expand: true,
+          src: ['test/fixtures/relativeDest/relativeDest.styl'],
+          dest: 'tmp',
+          ext: '.css'
+        }]
+
+      },
+      relativeDestIn: {
+        options: {
+          relativeDest: '../../'
+        },
+        files: [{
+          expand: true,
+          src: ['test/fixtures/relativeDest/relativeDest.styl'],
+          dest: 'tmp',
+          ext: '.css'
+        }]
       }
     },
 
