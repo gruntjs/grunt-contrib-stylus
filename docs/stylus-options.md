@@ -82,17 +82,20 @@ Default: `''`
 
 This string will be prepended to the beginning of the compiled output.
 
-##relativeDest
-Type: `String`
+## relativeDest
+Type: `String`  
 Default: `''`
 
-Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards
-For example
+Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards:
+
 ```js
-relativeDest: 'out',
+options: {
+  relativeDest: 'out'
+},
 files: [{
-   src: ['src/components/*/*.styl'],
-   ext: '.css'
-   }]
+  src: ['src/components/*/*.styl'],
+  ext: '.css'
+}]
 ```
+
 will generate `src/components/*/out/*.css` files.
