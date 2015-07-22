@@ -183,7 +183,8 @@ module.exports = function(grunt) {
       },
       relativeDestOut: {
         options: {
-          relativeDest: '/out'
+          relativeDest: '/out',
+          compress: false
         },
         files: [{
           expand: true,
@@ -191,11 +192,11 @@ module.exports = function(grunt) {
           dest: 'tmp',
           ext: '.css'
         }]
-
       },
       relativeDestIn: {
         options: {
-          relativeDest: '../../'
+          relativeDest: '../../',
+          compress: false
         },
         files: [{
           expand: true,
