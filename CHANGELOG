@@ -1,4 +1,9 @@
 v0.21.0:
+  date: 2015-07-21
+  changes:
+    - Add `relativeDest` option.
+    - Bump stylus to 0.52.
+v0.21.0:
   date: 2015-03-09
   changes:
     - Bump stylus to 0.50.
