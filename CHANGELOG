@@ -30,20 +30,20 @@ v0.15.1:
 v0.15.0:
   date: 2014-04-23
   changes:
-    - Bump stylus to 0.44
+    - Bump stylus to 0.44.
 v0.14.0:
   date: 2014-04-08
   changes:
-    - Bump stylus to 0.43
+    - Bump stylus to 0.43.
 v0.13.2:
   date: 2014-03-01
   changes:
     - Fix limit option for urlfunc.
-    - Update copyright to 2014
+    - Update copyright to 2014.
 v0.13.1:
   date: 2014-02-27
   changes:
-    - grunt.template.process is not needed
+    - grunt.template.process is not needed.
 v0.13.0:
   date: 2014-02-22
   changes:
@@ -54,35 +54,35 @@ v0.13.0:
 v0.12.0:
   date: 2014-01-08
   changes:
-    - Update to stylus 0.42.0
+    - Update to stylus 0.42.0.
 v0.11.0:
   date: 2013-12-02
   changes:
-    - Update to stylus 0.41.0
+    - Update to stylus 0.41.0.
 v0.10.0:
   date: 2013-11-07
   changes:
-    - Update to stylus 0.40.0 and nib 1.0.1
+    - Update to stylus 0.40.0 and nib 1.0.1.
 v0.9.0:
   date: 2013-10-20
   changes:
-    - Update to stylus 0.38.0
+    - Update to stylus 0.38.0.
 v0.8.0:
   date: 2013-08-20
   changes:
-    - Update to stylus 0.37.0 and nib to 1.0.0
+    - Update to stylus 0.37.0 and nib to 1.0.0.
 v0.7.0:
   date: 2013-07-31
   changes:
-    - Update to stylus 0.35
+    - Update to stylus 0.35.
 v0.6.0:
   date: 2013-07-11
   changes:
-    - Update to stylus 0.33
+    - Update to stylus 0.33.
 v0.5.0:
   date: 2013-03-10
   changes:
-    - Upgrade to stylus 0.32.1
+    - Upgrade to stylus 0.32.1.
 v0.4.1:
   date: 2013-02-22
   changes:

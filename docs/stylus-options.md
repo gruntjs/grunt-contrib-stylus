@@ -16,7 +16,7 @@ Specifies if the generated CSS file should contain comments indicating the corre
 Type: `Boolean`  
 Default: `false`
 
-Specifies if the generated CSS file should contain debug info that can be used by the FireStylus Firebug plugin
+Specifies if the generated CSS file should contain debug info that can be used by the FireStylus Firebug plugin.
 
 ## paths
 Type: `Array`
@@ -70,7 +70,7 @@ When including a css file in your app.styl by using @import "style.css", by defa
 Type: `Boolean`  
 Default: `false`
 
-Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus. 
+Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus.
 
 _All urls are resolved relatively to position of resulting `.css` file_
 
@@ -87,7 +87,7 @@ Type: `String`
 Default: `''`
 
 Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards
-For example 
+For example
 ```js
 relativeDest: 'out',
 files: [{
