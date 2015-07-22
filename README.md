@@ -103,6 +103,9 @@ Type: `Boolean`
 Default: `false`
 
 Telling Stylus to generate `url("bar/baz.png")` in the compiled CSS files accordingly from `@import "bar/bar.styl"` and `url("baz.png")`, which makes relative pathes work in Stylus.
+
+_All urls are resolved relatively to position of resulting `.css` file_
+
 ( **NOTICE:** the object key contains a space `"resolve url"` and Stylus resolves the url only if it finds the provided file )
 
 #### banner
@@ -111,22 +114,23 @@ Default: `''`
 
 This string will be prepended to the beginning of the compiled output.
 
-
-##relativeDest
-Type: `String`
+#### relativeDest
+Type: `String`  
 Default: `''`
 
-Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards
-For example 
-```js
-relativeDest: 'out',
-files: [{
-   src: ['src/components/*/*.styl'],
-   ext: '.css'
-   }]
-```
-will generate `src/components/*/out/*.css` files.
+Path to be joined and resolved with each file dest to get new one. Mostly useful for files specified using wildcards:
 
+```js
+options: {
+  relativeDest: 'out'
+},
+files: [{
+  src: ['src/components/*/*.styl'],
+  ext: '.css'
+}]
+```
+
+will generate `src/components/*/out/*.css` files.
 
 ### Examples
 
@@ -135,7 +139,7 @@ stylus: {
   compile: {
     options: {
       paths: ['path/to/import', 'another/to/import'],
-      relativeDest: '../out', //path to be joined and resolved with each file dest to get new one
+      relativeDest: '../out', //path to be joined and resolved with each file dest to get new one.
                               //mostly useful for files specified using wildcards
       urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
       use: [
@@ -194,4 +198,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Wed May 13 2015 12:36:01.*
+*This file was generated on Tue Jul 21 2015 21:22:55.*
