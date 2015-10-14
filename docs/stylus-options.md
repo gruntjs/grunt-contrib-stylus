@@ -21,7 +21,7 @@ Specifies if the generated CSS file should contain debug info that can be used b
 ## paths
 Type: `Array`
 
-Specifies directories to scan for @import directives when parsing.
+Specifies directories to scan for `@import` directives when parsing.
 
 ## define
 Type: `Object`
@@ -31,7 +31,7 @@ Allows you to define global variables in Gruntfile that will be accessible in St
 ## rawDefine
 Type: `Boolean|Array|String`
 
-If set to "true", defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [stylus/stylus#1286](https://github.com/stylus/stylus/issues/1286)
+If set to `true`, defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [stylus/stylus#1286](https://github.com/stylus/stylus/issues/1286)
 
 Allows passing an array or string to specify individual keys to define "raw", casting all other keys as default Stylus behavior.
 
@@ -63,7 +63,7 @@ in every single one of said files.
 Type: `Boolean`  
 Default: `false`
 
-When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script.
+When including a css file in your app.styl by using `@import "style.css"`, by default it will not include the full script, use `true` to compile into one script.
 ( **NOTICE:** the object key contains a space `"include css"` )
 
 ## [resolve url](http://stylus.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
