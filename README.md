@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v0.21.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
+# grunt-contrib-stylus v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
 
 > Compile Stylus files to CSS
 
@@ -53,7 +53,7 @@ Specifies if the generated CSS file should contain debug info that can be used b
 #### paths
 Type: `Array`
 
-Specifies directories to scan for @import directives when parsing.
+Specifies directories to scan for `@import` directives when parsing.
 
 #### define
 Type: `Object`
@@ -63,7 +63,7 @@ Allows you to define global variables in Gruntfile that will be accessible in St
 #### rawDefine
 Type: `Boolean|Array|String`
 
-If set to "true", defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [stylus/stylus#1286](https://github.com/stylus/stylus/issues/1286)
+If set to `true`, defines global variables in Gruntfile without casting objects to Stylus lists. Allows using a JavaScript object in Gruntfile to be accessible as a Stylus Hash. See Stylus's issue tracker for details. [stylus/stylus#1286](https://github.com/stylus/stylus/issues/1286)
 
 Allows passing an array or string to specify individual keys to define "raw", casting all other keys as default Stylus behavior.
 
@@ -95,7 +95,7 @@ in every single one of said files.
 Type: `Boolean`  
 Default: `false`
 
-When including a css file in your app.styl by using @import "style.css", by default it will not include the full script, use `true` to compile into one script.
+When including a css file in your app.styl by using `@import "style.css"`, by default it will not include the full script, use `true` to compile into one script.
 ( **NOTICE:** the object key contains a space `"include css"` )
 
 #### [resolve url](http://stylus.github.io/stylus/docs/executable.html#resolving-relative-urls-inside-imports)
@@ -164,6 +164,8 @@ stylus: {
 
 ## Release History
 
+ * 2016-01-19   v1.0.0   Bump stylus to 0.53.
+ * 2015-07-21   v0.22.0   Add `relativeDest` option. Bump stylus to 0.52.
  * 2015-03-09   v0.21.0   Bump stylus to 0.50.
  * 2014-09-22   v0.20.0   Bump stylus to 0.49.
  * 2014-08-26   v0.19.0   Bump dependencies. Bump stylus to 0.48.
@@ -198,4 +200,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Tue Jul 21 2015 21:22:55.*
+*This file was generated on Tue Jan 19 2016 18:33:18.*
