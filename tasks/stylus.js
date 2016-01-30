@@ -11,6 +11,81 @@
 module.exports = function(grunt) {
   var async = require('async');
   var _ = require('lodash');
+  var compileStylus = function(srcFile, options, callback) {
+    options = _.extend({filename: srcFile}, options);
+
+    // Never compress output in debug mode
+    if (grunt.option('debug')) {
+      options.compress = false;
+    }
+
+    var srcCode = grunt.file.read(srcFile);
+    var stylus = require('stylus');
+    var s = stylus(srcCode);
+
+    if (options.rawDefine) {
+      // convert string option to an array with single value.
+      if (_.isString(options.rawDefine)) {
+        options.rawDefine = [options.rawDefine];
+      }
+    }
+
+    function shouldUseRawDefine(key) {
+      if (options.rawDefine === true) {
+        return true;
+      } else if (_.isArray(options.rawDefine)) {
+        return _.includes(options.rawDefine, key);
+      }
+      return false;
+    }
+
+    _.each(options, function(value, key) {
+      if (key === 'urlfunc') {
+        // Custom name of function for embedding images as Data URI
+        if (_.isString(value)) {
+          s.define(value, stylus.url());
+        } else {
+          s.define(value.name, stylus.url({
+            limit: value.limit !== null ? value.limit : 30000,
+            paths: value.paths ? value.paths : []
+          }));
+        }
+      } else if (key === 'use') {
+        value.forEach(function(func) {
+          if (_.isFunction(func)) {
+            s.use(func());
+          }
+        });
+      } else if (key === 'define') {
+        for (var defineName in value) {
+          s.define(defineName, value[defineName], shouldUseRawDefine(defineName));
+        }
+      } else if (key === 'rawDefine') {
+        // do nothing.
+      } else if (key === 'import') {
+        value.forEach(function(stylusModule) {
+          s.import(stylusModule);
+        });
+      } else if (key === 'resolve url') {
+        s.define('url', stylus.resolver());
+      } else {
+        s.set(key, value);
+      }
+    });
+
+    // Load Nib if available
+    try {
+      s.use(require('nib')());
+    } catch (e) {}
+
+    s.render(function(err, css) {
+      if (err) {
+        grunt.log.error(err);
+        grunt.fail.warn('Stylus failed to compile.');
+      }
+      callback(css, err ? err : false);
+    });
+  };
 
   grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
     var done = this.async();
@@ -80,80 +155,4 @@ module.exports = function(grunt) {
       done();
     });
   });
-
-  var compileStylus = function(srcFile, options, callback) {
-    options = _.extend({filename: srcFile}, options);
-
-    // Never compress output in debug mode
-    if (grunt.option('debug')) {
-      options.compress = false;
-    }
-
-    var srcCode = grunt.file.read(srcFile);
-    var stylus = require('stylus');
-    var s = stylus(srcCode);
-
-    if (options.rawDefine) {
-      // convert string option to an array with single value.
-      if (_.isString(options.rawDefine)) {
-        options.rawDefine = [options.rawDefine];
-      }
-    }
-
-    function shouldUseRawDefine(key) {
-      if (options.rawDefine === true) {
-        return true;
-      } else if (_.isArray(options.rawDefine)) {
-        return _.contains(options.rawDefine, key);
-      }
-      return false;
-    }
-
-    _.each(options, function(value, key) {
-      if (key === 'urlfunc') {
-        // Custom name of function for embedding images as Data URI
-        if (_.isString(value)) {
-          s.define(value, stylus.url());
-        } else {
-          s.define(value.name, stylus.url({
-            limit: value.limit !== null ? value.limit : 30000,
-            paths: value.paths ? value.paths : []
-          }));
-        }
-      } else if (key === 'use') {
-        value.forEach(function(func) {
-          if (_.isFunction(func)) {
-            s.use(func());
-          }
-        });
-      } else if (key === 'define') {
-        for (var defineName in value) {
-          s.define(defineName, value[defineName], shouldUseRawDefine(defineName));
-        }
-      } else if (key === 'rawDefine') {
-        // do nothing.
-      } else if (key === 'import') {
-        value.forEach(function(stylusModule) {
-          s.import(stylusModule);
-        });
-      } else if (key === 'resolve url') {
-        s.define('url', stylus.resolver());
-      } else {
-        s.set(key, value);
-      }
-    });
-
-    // Load Nib if available
-    try {
-      s.use(require('nib')());
-    } catch (e) {}
-
-    s.render(function(err, css) {
-      if (err) {
-        grunt.log.error(err);
-        grunt.fail.warn('Stylus failed to compile.');
-      }
-      callback(css, err ? err : false);
-    });
-  };
 };
