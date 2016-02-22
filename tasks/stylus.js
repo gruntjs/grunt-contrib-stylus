@@ -68,6 +68,8 @@ module.exports = function(grunt) {
         });
       } else if (key === 'resolve url') {
         s.define('url', stylus.resolver());
+      } else if (key === 'resolve url nocheck') {
+        s.define('url', stylus.resolver({nocheck: true}));
       } else {
         s.set(key, value);
       }

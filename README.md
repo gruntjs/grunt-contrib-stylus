@@ -108,6 +108,14 @@ _All urls are resolved relatively to position of resulting `.css` file_
 
 ( **NOTICE:** the object key contains a space `"resolve url"` and Stylus resolves the url only if it finds the provided file )
 
+#### [resolve url nocheck]
+Type: `Boolean`  
+Default: `false`
+
+Like [resolve url](#resolve-url), but without file existence check. Fixes [some current issues](https://github.com/stylus/stylus/issues/2119).
+
+( **NOTICE:** the object key contains spaces `"resolve url nocheck"` )
+
 #### banner
 Type: `String`  
 Default: `''`

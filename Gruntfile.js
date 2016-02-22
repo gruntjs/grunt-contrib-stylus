@@ -160,6 +160,14 @@ module.exports = function(grunt) {
           'resolve url': true
         }
       },
+      resolveUrlNocheck: {
+        files: {
+          'tmp/resolveUrlNocheck.css': 'test/fixtures/resolveUrlNocheck/resolveUrlNocheck.styl'
+        },
+        options: {
+          'resolve url nocheck': true
+        }
+      },
       import: {
         files: {
           'tmp/import.css': 'test/fixtures/import/import.styl'
