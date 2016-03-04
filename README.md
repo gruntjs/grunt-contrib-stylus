@@ -1,11 +1,10 @@
-# grunt-contrib-stylus v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
+# grunt-contrib-stylus v1.1.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
 
 > Compile Stylus files to CSS
 
 
 
 ## Getting Started
-This plugin requires Grunt `>=0.4.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -108,13 +107,13 @@ _All urls are resolved relatively to position of resulting `.css` file_
 
 ( **NOTICE:** the object key contains a space `"resolve url"` and Stylus resolves the url only if it finds the provided file )
 
-#### [resolve url nocheck]
+#### resolve url nocheck
 Type: `Boolean`  
 Default: `false`
 
-Like [resolve url](#resolve-url), but without file existence check. Fixes [some current issues](https://github.com/stylus/stylus/issues/2119).
+Like [resolve url(#resolve-url), but without file existence check. Fixing [some current issues](https://github.com/stylus/stylus/issues/2119).
 
-( **NOTICE:** the object key contains spaces `"resolve url nocheck"` )
+( **NOTICE:** the object key contains two spaces `"resolve url nocheck"` )
 
 #### banner
 Type: `String`  
@@ -172,6 +171,7 @@ stylus: {
 
 ## Release History
 
+ * 2016-03-04   v1.1.0   Add "resolve url nocheck". Fixes Remove peerDeps. Point main script to task.
  * 2016-01-19   v1.0.0   Bump stylus to 0.53.
  * 2015-07-21   v0.22.0   Add `relativeDest` option. Bump stylus to 0.52.
  * 2015-03-09   v0.21.0   Bump stylus to 0.50.
@@ -208,4 +208,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Tue Jan 19 2016 18:33:18.*
+*This file was generated on Fri Mar 04 2016 12:34:59.*
