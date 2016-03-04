@@ -128,6 +128,15 @@ exports.stylus = {
 
     test.done();
   },
+  resolveUrlNocheck: function(test) {
+    test.expect(1);
+
+    var actual = readFile('tmp/resolveUrlNocheck.css');
+    var expected = readFile('test/expected/resolveUrlNocheck/resolveUrlNocheck.css');
+    test.equal(expected, actual, 'should resolve import urls without existence check');
+
+    test.done();
+  },
   relativeDestIn: function(test) {
     test.expect(1);
 
