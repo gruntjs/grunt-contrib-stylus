@@ -77,31 +77,31 @@ module.exports = function(grunt) {
           ]
         }
       },
-      embedurl: {
+      urlfunc: {
         files: {
-          'tmp/embedurl.css': 'test/fixtures/embedurl/embedurl.styl'
+          'tmp/urlfunc.css': 'test/fixtures/urlfunc/urlfunc.styl'
         },
         options: {
-          urlfunc: 'embedurl'
+          urlfunc: 'data-uri'
         }
       },
-      embedurlObj: {
+      urlfuncObj: {
         files: {
-          'tmp/embedurlObj.css': 'test/fixtures/embedurl/embedurl.styl'
+          'tmp/urlfuncObj.css': 'test/fixtures/urlfunc/urlfunc.styl'
         },
         options: {
           urlfunc: {
-            name: 'embedurl'
+            name: 'data-uri'
           }
         }
       },
       urlfuncOpts: {
         files: {
-          'tmp/embedurlOpts.css': 'test/fixtures/embedurl/embedurlOpts.styl'
+          'tmp/urlfuncOpts.css': 'test/fixtures/urlfunc/urlfuncOpts.styl'
         },
         options: {
           urlfunc: {
-            name: 'embedurl',
+            name: 'data-uri',
             limit: 10,
             paths: []
           }
@@ -109,11 +109,11 @@ module.exports = function(grunt) {
       },
       urlfuncLimitFalse: {
         files: {
-          'tmp/urlfuncLimitFalse.css': 'test/fixtures/embedurl/urlfuncLimitFalse.styl'
+          'tmp/urlfuncLimitFalse.css': 'test/fixtures/urlfunc/urlfuncLimitFalse.styl'
         },
         options: {
           urlfunc: {
-            name: 'embedurl',
+            name: 'data-uri',
             limit: false,
             paths: []
           }

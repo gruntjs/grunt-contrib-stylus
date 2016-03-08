@@ -111,7 +111,7 @@ _All urls are resolved relatively to position of resulting `.css` file_
 Type: `Boolean`  
 Default: `false`
 
-Like [resolve url(#resolve-url), but without file existence check. Fixing [some current issues](https://github.com/stylus/stylus/issues/2119).
+Like [resolve url](#resolve-url), but without file existence check. Fixing [some current issues](https://github.com/stylus/stylus/issues/2119).
 
 ( **NOTICE:** the object key contains two spaces `"resolve url nocheck"` )
 
@@ -148,7 +148,7 @@ stylus: {
       paths: ['path/to/import', 'another/to/import'],
       relativeDest: '../out', //path to be joined and resolved with each file dest to get new one.
                               //mostly useful for files specified using wildcards
-      urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
+      urlfunc: 'data-uri', // use data-uri('test.png') in our code to trigger Data URI embedding
       use: [
         function () {
           return testPlugin('yep'); // plugin with options
