@@ -80,7 +80,7 @@ _All urls are resolved relatively to position of resulting `.css` file_
 Type: `Boolean`  
 Default: `false`
 
-Like [resolve url(#resolve-url), but without file existence check. Fixing [some current issues](https://github.com/stylus/stylus/issues/2119).
+Like [resolve url](#resolve-url), but without file existence check. Fixing [some current issues](https://github.com/stylus/stylus/issues/2119).
 
 ( **NOTICE:** the object key contains two spaces `"resolve url nocheck"` )
 

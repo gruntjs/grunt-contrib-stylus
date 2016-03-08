@@ -1,4 +1,4 @@
-# grunt-contrib-stylus v1.1.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
+# grunt-contrib-stylus v1.2.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-stylus.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-stylus) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3f708w3tww2lem3o/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-stylus/branch/master)
 
 > Compile Stylus files to CSS
 
@@ -171,6 +171,7 @@ stylus: {
 
 ## Release History
 
+ * 2016-03-08   v1.2.0   Stylus ^0.54
  * 2016-03-04   v1.1.0   Add "resolve url nocheck". Fixes Remove peerDeps. Point main script to task.
  * 2016-01-19   v1.0.0   Bump stylus to 0.53.
  * 2015-07-21   v0.22.0   Add `relativeDest` option. Bump stylus to 0.52.
@@ -208,4 +209,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Fri Mar 04 2016 12:34:59.*
+*This file was generated on Tue Mar 08 2016 16:42:19.*
