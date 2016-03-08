@@ -53,23 +53,23 @@ exports.stylus = {
 
     test.done();
   },
-  embedurl: function(test) {
+  urlfunc: function(test) {
     test.expect(4);
 
-    var actual = readFile('tmp/embedurl.css');
-    var expected = readFile('test/expected/embedurl/embedurl.css');
-    test.equal(expected, actual, '`embedurl` mixin should embed image as Data URI');
+    var actual = readFile('tmp/urlfunc.css');
+    var expected = readFile('test/expected/urlfunc/urlfunc.css');
+    test.equal(expected, actual, '`urlfunc` mixin should embed image as Data URI');
 
-    var actual2 = readFile('tmp/embedurlObj.css');
-    var expected2 = readFile('test/expected/embedurl/embedurl.css');
-    test.equal(actual2, expected2, '`embedurl` mixin should embed image as Data URI');
+    var actual2 = readFile('tmp/urlfuncObj.css');
+    var expected2 = readFile('test/expected/urlfunc/urlfunc.css');
+    test.equal(actual2, expected2, '`urlfunc` mixin should embed image as Data URI');
 
-    var actual3 = readFile('tmp/embedurlOpts.css');
-    var expected3 = readFile('test/expected/embedurl/embedurlOpts.css');
-    test.equal(actual3, expected3, '`embedurlOpts` limit should prevent Data URI embed');
+    var actual3 = readFile('tmp/urlfuncOpts.css');
+    var expected3 = readFile('test/expected/urlfunc/urlfuncOpts.css');
+    test.equal(actual3, expected3, '`urlfuncOpts` limit should prevent Data URI embed');
 
     var actual4 = readFile('tmp/urlfuncLimitFalse.css');
-    var expected4 = readFile('test/expected/embedurl/urlfuncLimitFalse.css');
+    var expected4 = readFile('test/expected/urlfunc/urlfuncLimitFalse.css');
     test.equal(actual4, expected4, '`urlfuncLimitFalse` no limit url function');
 
     test.done();

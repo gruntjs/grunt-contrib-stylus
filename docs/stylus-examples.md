@@ -7,7 +7,7 @@ stylus: {
       paths: ['path/to/import', 'another/to/import'],
       relativeDest: '../out', //path to be joined and resolved with each file dest to get new one.
                               //mostly useful for files specified using wildcards
-      urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
+      urlfunc: 'data-uri', // use data-uri('test.png') in our code to trigger Data URI embedding
       use: [
         function () {
           return testPlugin('yep'); // plugin with options
