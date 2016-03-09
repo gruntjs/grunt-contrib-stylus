@@ -58,11 +58,11 @@ exports.stylus = {
 
     var actual = readFile('tmp/urlfunc.css');
     var expected = readFile('test/expected/urlfunc/urlfunc.css');
-    test.equal(expected, actual, '`urlfunc` mixin should embed image as Data URI');
+    test.equal(expected, actual, '`data-uri` function should embed image as Data URI');
 
     var actual2 = readFile('tmp/urlfuncObj.css');
     var expected2 = readFile('test/expected/urlfunc/urlfunc.css');
-    test.equal(actual2, expected2, '`urlfunc` mixin should embed image as Data URI');
+    test.equal(actual2, expected2, '`data-uri` function should embed image as Data URI');
 
     var actual3 = readFile('tmp/urlfuncOpts.css');
     var expected3 = readFile('test/expected/urlfunc/urlfuncOpts.css');
