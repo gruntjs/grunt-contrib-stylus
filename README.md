@@ -171,8 +171,8 @@ stylus: {
 
 ## Release History
 
- * 2016-03-08   v1.2.0   Stylus ^0.54
- * 2016-03-04   v1.1.0   Add "resolve url nocheck". Fixes Remove peerDeps. Point main script to task.
+ * 2016-03-08   v1.2.0   Stylus ^0.54.
+ * 2016-03-04   v1.1.0   Add "resolve url nocheck". Fixes #146. Remove peerDeps. Point main script to task.
  * 2016-01-19   v1.0.0   Bump stylus to 0.53.
  * 2015-07-21   v0.22.0   Add `relativeDest` option. Bump stylus to 0.52.
  * 2015-03-09   v0.21.0   Bump stylus to 0.50.
@@ -181,11 +181,11 @@ stylus: {
  * 2014-07-02   v0.18.0   Bump stylus to 0.47.
  * 2014-06-04   v0.17.0   Bump stylus to 0.46.
  * 2014-05-12   v0.16.0   Bump stylus to 0.45.
- * 2014-05-01   v0.15.1   Add support for rawDefine.
+ * 2014-05-01   v0.15.1   Add support for `rawDefine`.
  * 2014-04-23   v0.15.0   Bump stylus to 0.44.
  * 2014-04-08   v0.14.0   Bump stylus to 0.43.
- * 2014-03-01   v0.13.2   Fix limit option for urlfunc. Update copyright to 2014.
- * 2014-02-27   v0.13.1   grunt.template.process is not needed.
+ * 2014-03-01   v0.13.2   Fix `limit` option for `urlfunc`. Update copyright to 2014.
+ * 2014-02-27   v0.13.1   `grunt.template.process` is not needed.
  * 2014-02-22   v0.13.0   Adds Data URI Image Inlining options. Fix "resolve url" option. Use chalk module to colorize terminal output. Emphasize spaces in object keys in the README.
  * 2014-01-08   v0.12.0   Update to stylus 0.42.0.
  * 2013-12-02   v0.11.0   Update to stylus 0.41.0.
@@ -198,8 +198,8 @@ stylus: {
  * 2013-02-22   v0.4.1   Support stylus `define` option.
  * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
- * 2013-01-09   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.file api.
- * 2012-12-15   v0.4.0a   Conversion to grunt v0.4 conventions. Remove node v0.6 and grunt v0.3 support. Merge grunt-stylus features (plugin loading, embedding). Remove experimental destination wildcards.
+ * 2013-01-09   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to `this.file` API.
+ * 2012-12-15   v0.4.0a   Conversion to grunt v0.4 conventions. Remove Node.js v0.6 and grunt v0.3 support. Merge grunt-stylus features (plugin loading, embedding). Remove experimental destination wildcards.
  * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
  * 2012-09-24   v0.3.0   Options no longer accepted from global config key. Individually compile into dest, maintaining folder structure.
  * 2012-09-17   v0.2.2   Tests refactored, better watch integration.
@@ -209,4 +209,4 @@ stylus: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca)
 
-*This file was generated on Tue Mar 08 2016 16:42:19.*
+*This file was generated on Fri Mar 18 2016 21:06:50.*

@@ -1,11 +1,11 @@
 v1.2.0:
   date: 2016-03-08
   changes:
-    - Stylus ^0.54
+    - Stylus ^0.54.
 v1.1.0:
   date: 2016-03-04
   changes:
-    - Add "resolve url nocheck". Fixes #146.
+    - 'Add "resolve url nocheck". Fixes #146.'
     - Remove peerDeps.
     - Point main script to task.
 v1.0.0:
@@ -45,7 +45,7 @@ v0.16.0:
 v0.15.1:
   date: 2014-05-01
   changes:
-    - Add support for rawDefine.
+    - Add support for `rawDefine`.
 v0.15.0:
   date: 2014-04-23
   changes:
@@ -57,12 +57,12 @@ v0.14.0:
 v0.13.2:
   date: 2014-03-01
   changes:
-    - Fix limit option for urlfunc.
+    - Fix `limit` option for `urlfunc`.
     - Update copyright to 2014.
 v0.13.1:
   date: 2014-02-27
   changes:
-    - grunt.template.process is not needed.
+    - '`grunt.template.process` is not needed.'
 v0.13.0:
   date: 2014-02-22
   changes:
@@ -119,12 +119,12 @@ v0.4.0rc5:
   date: 2013-01-09
   changes:
     - Updating to work with grunt v0.4.0rc5.
-    - Switching to this.file api.
+    - Switching to `this.file` API.
 v0.4.0a:
   date: 2012-12-15
   changes:
     - Conversion to grunt v0.4 conventions.
-    - Remove node v0.6 and grunt v0.3 support.
+    - Remove Node.js v0.6 and grunt v0.3 support.
     - Merge grunt-stylus features (plugin loading, embedding).
     - Remove experimental destination wildcards.
 v0.3.1:
