@@ -104,6 +104,7 @@ module.exports = function(grunt) {
     var banner = options.banner;
 
     var filesCreatedCount = 0;
+    var sourcemapsCreated = 0;
 
     if (options.basePath || options.flatten) {
       grunt.fail.warn('Experimental destination wildcards are no longer supported. Please refer to README.');
@@ -162,6 +163,7 @@ module.exports = function(grunt) {
               compiled[0] = sourceMapUrl.removeFrom(compiled[0]);
               compiled[0] += '/*# sourceMappingURL=' + path.basename(destFile) + '.map */';
             }
+            sourcemapsCreated++;
           }
           grunt.file.write(destFile, banner + compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
           grunt.verbose.writeln('File ' + chalk.cyan(destFile) + ' created.');
@@ -171,6 +173,10 @@ module.exports = function(grunt) {
       });
     }, function() {
       grunt.log.ok(filesCreatedCount + ' ' + grunt.util.pluralize(filesCreatedCount, 'file/files') + ' created.');
+
+      if (sourcemapsCreated) {
+        grunt.log.ok(sourcemapsCreated + ' ' + grunt.util.pluralize(sourcemapsCreated, 'sourcemap/sourcemaps') + ' created.');
+      }
 
       done();
     });
