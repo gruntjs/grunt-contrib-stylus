@@ -212,6 +212,35 @@ module.exports = function(grunt) {
           dest: 'tmp',
           ext: '.css'
         }]
+      },
+      sourceMapExternal: {
+        files: {
+          'tmp/sourcemapExternal.css': 'test/fixtures/sourcemapExternal/sourcemapExternal.styl'
+        },
+        options: {
+          paths: ['test/fixtures/'],
+          sourcemap: {
+            /* from: http://stylus-lang.com/docs/sourcemaps.html
+              `comment`     Adds a comment with the `sourceMappingURL` to the generated CSS (default: `true`)
+              `inline`      Inlines the sourcemap with full source text in base64 format (default: `false`)
+              `sourceRoot`  "sourceRoot" property of the generated sourcemap
+              `basePath`    Base path from which sourcemap and all sources are relative (default: `.`)
+            */
+            comment: true,
+            sourceRoot: '/' // style sources relative to built css
+          }
+        }
+      },
+      sourceMapInline: {
+        files: {
+          'tmp/sourcemapInline.css': 'test/fixtures/sourcemapInline/sourcemapInline.styl'
+        },
+        options: {
+          paths: ['test/fixtures/'],
+          sourcemap: {
+            inline: true
+          }
+        }
       }
     },
 

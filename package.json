@@ -20,6 +20,7 @@
     "chalk": "^1.0.0",
     "lodash": "^4.0.0",
     "nib": "^1.1.0",
+    "source-map-url": "^0.4.0",
     "stylus": "^0.54.0"
   },
   "devDependencies": {

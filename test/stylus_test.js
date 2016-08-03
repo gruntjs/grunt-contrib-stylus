@@ -1,5 +1,4 @@
 'use strict';
-
 var grunt = require('grunt');
 
 function readFile(file) {
@@ -154,5 +153,23 @@ exports.stylus = {
     test.equal(expected, actual, 'should generate file with relative dest');
 
     test.done();
-  }
+  },
+  sourceMapExternal: function(test) {
+    test.expect(1);
+
+    var actual = readFile('tmp/sourcemapExternal.css.map');
+    var expected = readFile('test/expected/sourcemapExternal/sourcemapExternal.css.map');
+    test.equal(expected, actual, 'should generate sourcemaps');
+
+    test.done();
+  },
+  sourceMapInline: function(test) {
+    test.expect(1);
+
+    var actual = readFile('tmp/sourcemapInline.css');
+    var expected = readFile('test/expected/sourcemapInline/sourcemapInline.css');
+    test.equal(expected, actual, 'should generate sourcemaps inline');
+
+    test.done();
+  },
 };
