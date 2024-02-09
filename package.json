@@ -16,18 +16,18 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "async": "^1.5.2",
-    "chalk": "^1.0.0",
-    "lodash": "^4.0.0",
-    "nib": "^1.1.0",
-    "stylus": "^0.54.0"
+    "async": "^3.2.5",
+    "chalk": "^4.1.2",
+    "lodash": "^4.17.21",
+    "nib": "^1.2.0",
+    "stylus": "^0.62.0"
   },
   "devDependencies": {
-    "grunt": "^1.0.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-internal": "^1.1.0",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-nodeunit": "^1.0.0"
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-internal": "^9.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-nodeunit": "^5.0.0"
   },
   "keywords": [
     "gruntplugin"
