@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "async": "^3.2.5",
-    "chalk": "^5.3.0",
+    "chalk": "^4.1.2",
     "lodash": "^4.17.21",
     "nib": "^1.2.0",
     "stylus": "^0.62.0"
